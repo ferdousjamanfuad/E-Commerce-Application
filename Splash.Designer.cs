@@ -63,7 +63,7 @@
             // 
             this.lblstore.AutoSize = true;
             this.lblstore.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstore.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblstore.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lblstore.Location = new System.Drawing.Point(278, 9);
             this.lblstore.Name = "lblstore";
             this.lblstore.Size = new System.Drawing.Size(105, 22);

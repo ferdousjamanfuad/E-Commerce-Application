@@ -16,5 +16,7 @@ namespace E_Commerce_Application
         {
             InitializeComponent();
         }
+
+        
     }
 }
