@@ -35,11 +35,12 @@
             this.txtpass = new System.Windows.Forms.TextBox();
             this.lblstore = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblerrorurname = new System.Windows.Forms.Label();
-            this.lblerrorpass = new System.Windows.Forms.Label();
-            this.btnclr = new System.Windows.Forms.Button();
             this.btnlgn = new System.Windows.Forms.Button();
+            this.btnclr = new System.Windows.Forms.Button();
+            this.lblerrorpass = new System.Windows.Forms.Label();
+            this.lblerrorurname = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linklblreg = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +98,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.linklblreg);
             this.panel1.Controls.Add(this.btnlgn);
             this.panel1.Controls.Add(this.btnclr);
             this.panel1.Controls.Add(this.lblerrorpass);
@@ -111,39 +113,16 @@
             this.panel1.Size = new System.Drawing.Size(410, 435);
             this.panel1.TabIndex = 5;
             // 
-            // pictureBox1
+            // btnlgn
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(124, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(267, 192);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lblerrorurname
-            // 
-            this.lblerrorurname.AutoSize = true;
-            this.lblerrorurname.BackColor = System.Drawing.Color.Transparent;
-            this.lblerrorurname.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerrorurname.ForeColor = System.Drawing.Color.Red;
-            this.lblerrorurname.Location = new System.Drawing.Point(176, 248);
-            this.lblerrorurname.Name = "lblerrorurname";
-            this.lblerrorurname.Size = new System.Drawing.Size(150, 15);
-            this.lblerrorurname.TabIndex = 5;
-            this.lblerrorurname.Text = "*** please enter username ";
-            // 
-            // lblerrorpass
-            // 
-            this.lblerrorpass.AutoSize = true;
-            this.lblerrorpass.BackColor = System.Drawing.Color.Transparent;
-            this.lblerrorpass.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerrorpass.ForeColor = System.Drawing.Color.Red;
-            this.lblerrorpass.Location = new System.Drawing.Point(176, 305);
-            this.lblerrorpass.Name = "lblerrorpass";
-            this.lblerrorpass.Size = new System.Drawing.Size(149, 15);
-            this.lblerrorpass.TabIndex = 6;
-            this.lblerrorpass.Text = "*** please enter password ";
+            this.btnlgn.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlgn.Location = new System.Drawing.Point(291, 346);
+            this.btnlgn.Name = "btnlgn";
+            this.btnlgn.Size = new System.Drawing.Size(75, 23);
+            this.btnlgn.TabIndex = 8;
+            this.btnlgn.Text = "Login";
+            this.btnlgn.UseVisualStyleBackColor = true;
+            this.btnlgn.Click += new System.EventHandler(this.btnlgn_Click);
             // 
             // btnclr
             // 
@@ -154,16 +133,55 @@
             this.btnclr.TabIndex = 7;
             this.btnclr.Text = "Clear";
             this.btnclr.UseVisualStyleBackColor = true;
+            this.btnclr.Click += new System.EventHandler(this.btnclr_Click);
             // 
-            // btnlgn
+            // lblerrorpass
             // 
-            this.btnlgn.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlgn.Location = new System.Drawing.Point(291, 346);
-            this.btnlgn.Name = "btnlgn";
-            this.btnlgn.Size = new System.Drawing.Size(75, 23);
-            this.btnlgn.TabIndex = 8;
-            this.btnlgn.Text = "Login";
-            this.btnlgn.UseVisualStyleBackColor = true;
+            this.lblerrorpass.AutoSize = true;
+            this.lblerrorpass.BackColor = System.Drawing.Color.Transparent;
+            this.lblerrorpass.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorpass.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorpass.Location = new System.Drawing.Point(176, 301);
+            this.lblerrorpass.Name = "lblerrorpass";
+            this.lblerrorpass.Size = new System.Drawing.Size(149, 15);
+            this.lblerrorpass.TabIndex = 6;
+            this.lblerrorpass.Text = "*** please enter password ";
+            // 
+            // lblerrorurname
+            // 
+            this.lblerrorurname.AutoSize = true;
+            this.lblerrorurname.BackColor = System.Drawing.Color.Transparent;
+            this.lblerrorurname.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorurname.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorurname.Location = new System.Drawing.Point(176, 244);
+            this.lblerrorurname.Name = "lblerrorurname";
+            this.lblerrorurname.Size = new System.Drawing.Size(150, 15);
+            this.lblerrorurname.TabIndex = 5;
+            this.lblerrorurname.Text = "*** please enter username ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(124, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(267, 192);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // linklblreg
+            // 
+            this.linklblreg.ActiveLinkColor = System.Drawing.Color.Purple;
+            this.linklblreg.AutoSize = true;
+            this.linklblreg.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblreg.LinkColor = System.Drawing.Color.White;
+            this.linklblreg.Location = new System.Drawing.Point(186, 316);
+            this.linklblreg.Name = "linklblreg";
+            this.linklblreg.Size = new System.Drawing.Size(125, 14);
+            this.linklblreg.TabIndex = 9;
+            this.linklblreg.TabStop = true;
+            this.linklblreg.Text = "Don\'t Have An Account?";
+            this.linklblreg.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblreg_LinkClicked);
             // 
             // Login
             // 
@@ -178,6 +196,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -199,5 +218,6 @@
         private System.Windows.Forms.Label lblerrorpass;
         private System.Windows.Forms.Button btnlgn;
         private System.Windows.Forms.Button btnclr;
+        private System.Windows.Forms.LinkLabel linklblreg;
     }
 }

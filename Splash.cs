@@ -12,18 +12,19 @@ namespace E_Commerce_Application
 {
     public partial class splash : Form
     {
+        private int start = 0;
         public splash()
         {
             InitializeComponent();
+           
         }
-        int start = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            start += 1;
             progressBar.Value = start;
+            start += 1;
+            lblpercentage.Text = progressBar.Value + "%";
             if (progressBar.Value == 100)
             {
-                progressBar.Value = 0;
                 timer1.Stop();
                 Login login = new Login();
                 login.Show();
@@ -34,6 +35,7 @@ namespace E_Commerce_Application
         private void splash_Load(object sender, EventArgs e)
         {
             timer1.Start();
+
         }
     }
 }

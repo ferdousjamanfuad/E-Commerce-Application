@@ -35,6 +35,7 @@
             this.lblstore = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblload = new System.Windows.Forms.Label();
+            this.lblpercentage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,9 +82,20 @@
             this.lblload.ForeColor = System.Drawing.Color.DarkGreen;
             this.lblload.Location = new System.Drawing.Point(12, 347);
             this.lblload.Name = "lblload";
-            this.lblload.Size = new System.Drawing.Size(74, 19);
+            this.lblload.Size = new System.Drawing.Size(86, 19);
             this.lblload.TabIndex = 3;
-            this.lblload.Text = "Loading...";
+            this.lblload.Text = "Loading . . .";
+            // 
+            // lblpercentage
+            // 
+            this.lblpercentage.AutoSize = true;
+            this.lblpercentage.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpercentage.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblpercentage.Location = new System.Drawing.Point(93, 348);
+            this.lblpercentage.Name = "lblpercentage";
+            this.lblpercentage.Size = new System.Drawing.Size(21, 17);
+            this.lblpercentage.TabIndex = 4;
+            this.lblpercentage.Text = "%";
             // 
             // splash
             // 
@@ -91,6 +103,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(690, 389);
+            this.Controls.Add(this.lblpercentage);
             this.Controls.Add(this.lblload);
             this.Controls.Add(this.lblstore);
             this.Controls.Add(this.pictureBox1);
@@ -114,6 +127,7 @@
         private System.Windows.Forms.Label lblstore;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblload;
+        private System.Windows.Forms.Label lblpercentage;
     }
 }
 
