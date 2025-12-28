@@ -33,13 +33,13 @@
             // 
             // btnexitadmin
             // 
-            this.btnexitadmin.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnexitadmin.BackColor = System.Drawing.Color.AntiqueWhite;
             this.btnexitadmin.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnexitadmin.Location = new System.Drawing.Point(859, 2);
+            this.btnexitadmin.Location = new System.Drawing.Point(880, 0);
             this.btnexitadmin.Name = "btnexitadmin";
-            this.btnexitadmin.Size = new System.Drawing.Size(81, 31);
+            this.btnexitadmin.Size = new System.Drawing.Size(61, 25);
             this.btnexitadmin.TabIndex = 0;
-            this.btnexitadmin.Text = "Exit";
+            this.btnexitadmin.Text = "Logout";
             this.btnexitadmin.UseVisualStyleBackColor = false;
             this.btnexitadmin.Click += new System.EventHandler(this.btnexitadmin_Click);
             // 
@@ -47,6 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(942, 507);
             this.Controls.Add(this.btnexitadmin);
             this.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -33,11 +33,11 @@
             // 
             // btnexitpm
             // 
-            this.btnexitpm.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnexitpm.BackColor = System.Drawing.Color.AntiqueWhite;
             this.btnexitpm.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnexitpm.Location = new System.Drawing.Point(854, 2);
+            this.btnexitpm.Location = new System.Drawing.Point(895, 0);
             this.btnexitpm.Name = "btnexitpm";
-            this.btnexitpm.Size = new System.Drawing.Size(81, 31);
+            this.btnexitpm.Size = new System.Drawing.Size(41, 22);
             this.btnexitpm.TabIndex = 1;
             this.btnexitpm.Text = "Exit";
             this.btnexitpm.UseVisualStyleBackColor = false;
@@ -47,6 +47,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.BlanchedAlmond;
             this.ClientSize = new System.Drawing.Size(937, 508);
             this.Controls.Add(this.btnexitpm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
