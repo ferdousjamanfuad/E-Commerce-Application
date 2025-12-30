@@ -23,5 +23,27 @@ namespace BakeryShopManagementSystem
             login.Show();
             this.Close();
         }
+
+        private void tocustomer_Click(object sender, EventArgs e)
+        {
+            tabControlmain.SelectedTab = Customer;
+        }
+
+        private void toproduct_Click(object sender, EventArgs e)
+        {
+            tabControlmain.SelectedTab = Product;
+
+        }
+
+        private void tocategory_Click(object sender, EventArgs e)
+        {
+            tabControlmain.SelectedTab = Category;
+        }
+
+        private void todashboard_Click(object sender, EventArgs e)
+        {
+            tabControlmain.SelectedTab = Dashboard;
+
+        }
     }
 }
