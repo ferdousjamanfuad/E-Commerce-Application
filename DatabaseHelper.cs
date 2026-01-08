@@ -1,10 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
-namespace BakeryManagementSystem
+namespace BakeryShopManagementSystem
 {
     public class DatabaseHelper
     {
