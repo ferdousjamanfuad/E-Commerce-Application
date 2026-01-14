@@ -37,6 +37,11 @@
             this.tousers = new System.Windows.Forms.Button();
             this.tabControlmain = new System.Windows.Forms.TabControl();
             this.User = new System.Windows.Forms.TabPage();
+            this.panelpending = new System.Windows.Forms.Panel();
+            this.btnexitpending = new System.Windows.Forms.Button();
+            this.btndeclineuser = new System.Windows.Forms.Button();
+            this.btnapproveuser = new System.Windows.Forms.Button();
+            this.dgvpanelpending = new System.Windows.Forms.DataGridView();
             this.btnadmdltuser = new System.Windows.Forms.Button();
             this.btnadminpendinguser = new System.Windows.Forms.Button();
             this.btnadminupdateuser = new System.Windows.Forms.Button();
@@ -60,20 +65,19 @@
             this.lbladmincategory = new System.Windows.Forms.Label();
             this.Dashboard = new System.Windows.Forms.TabPage();
             this.lbldashboard = new System.Windows.Forms.Label();
-            this.panelpending = new System.Windows.Forms.Panel();
-            this.dgvpanelpending = new System.Windows.Forms.DataGridView();
-            this.btnapproveuser = new System.Windows.Forms.Button();
-            this.btndeclineuser = new System.Windows.Forms.Button();
+            this.lblpanelpending = new System.Windows.Forms.Label();
+            this.userpaneladmin = new System.Windows.Forms.Panel();
             this.adminleftpanel.SuspendLayout();
             this.tabControlmain.SuspendLayout();
             this.User.SuspendLayout();
+            this.panelpending.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvpanelpending)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvadminusers)).BeginInit();
             this.Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvadminproduct)).BeginInit();
             this.Category.SuspendLayout();
             this.Dashboard.SuspendLayout();
-            this.panelpending.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpanelpending)).BeginInit();
+            this.userpaneladmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnexitadmin
@@ -82,7 +86,7 @@
             this.btnexitadmin.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnexitadmin.ForeColor = System.Drawing.Color.LightCoral;
             this.btnexitadmin.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnexitadmin.Location = new System.Drawing.Point(64, 479);
+            this.btnexitadmin.Location = new System.Drawing.Point(64, 478);
             this.btnexitadmin.Name = "btnexitadmin";
             this.btnexitadmin.Size = new System.Drawing.Size(71, 25);
             this.btnexitadmin.TabIndex = 0;
@@ -177,14 +181,9 @@
             // 
             // User
             // 
-            this.User.BackColor = System.Drawing.Color.Teal;
+            this.User.BackColor = System.Drawing.Color.Transparent;
+            this.User.Controls.Add(this.userpaneladmin);
             this.User.Controls.Add(this.panelpending);
-            this.User.Controls.Add(this.btnadmdltuser);
-            this.User.Controls.Add(this.btnadminpendinguser);
-            this.User.Controls.Add(this.btnadminupdateuser);
-            this.User.Controls.Add(this.btnadminviewuser);
-            this.User.Controls.Add(this.dgvadminusers);
-            this.User.Controls.Add(this.lbladminuser);
             this.User.Location = new System.Drawing.Point(4, 4);
             this.User.Name = "User";
             this.User.Padding = new System.Windows.Forms.Padding(3);
@@ -192,18 +191,78 @@
             this.User.TabIndex = 0;
             this.User.Text = "Users";
             // 
+            // panelpending
+            // 
+            this.panelpending.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panelpending.Controls.Add(this.lblpanelpending);
+            this.panelpending.Controls.Add(this.btnexitpending);
+            this.panelpending.Controls.Add(this.btndeclineuser);
+            this.panelpending.Controls.Add(this.btnapproveuser);
+            this.panelpending.Controls.Add(this.dgvpanelpending);
+            this.panelpending.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelpending.Location = new System.Drawing.Point(3, 3);
+            this.panelpending.Name = "panelpending";
+            this.panelpending.Size = new System.Drawing.Size(743, 474);
+            this.panelpending.TabIndex = 13;
+            // 
+            // btnexitpending
+            // 
+            this.btnexitpending.ForeColor = System.Drawing.Color.Blue;
+            this.btnexitpending.Location = new System.Drawing.Point(653, 310);
+            this.btnexitpending.Name = "btnexitpending";
+            this.btnexitpending.Size = new System.Drawing.Size(75, 60);
+            this.btnexitpending.TabIndex = 10;
+            this.btnexitpending.Text = "Exit";
+            this.btnexitpending.UseVisualStyleBackColor = true;
+            this.btnexitpending.Click += new System.EventHandler(this.btnexitpending_Click);
+            // 
+            // btndeclineuser
+            // 
+            this.btndeclineuser.ForeColor = System.Drawing.Color.Tomato;
+            this.btndeclineuser.Location = new System.Drawing.Point(653, 216);
+            this.btndeclineuser.Name = "btndeclineuser";
+            this.btndeclineuser.Size = new System.Drawing.Size(75, 60);
+            this.btndeclineuser.TabIndex = 9;
+            this.btndeclineuser.Text = "Decline";
+            this.btndeclineuser.UseVisualStyleBackColor = true;
+            this.btndeclineuser.Click += new System.EventHandler(this.btndeclineuser_Click);
+            // 
+            // btnapproveuser
+            // 
+            this.btnapproveuser.ForeColor = System.Drawing.Color.Green;
+            this.btnapproveuser.Location = new System.Drawing.Point(653, 112);
+            this.btnapproveuser.Name = "btnapproveuser";
+            this.btnapproveuser.Size = new System.Drawing.Size(75, 61);
+            this.btnapproveuser.TabIndex = 8;
+            this.btnapproveuser.Text = "Approve";
+            this.btnapproveuser.UseVisualStyleBackColor = true;
+            this.btnapproveuser.Click += new System.EventHandler(this.btnapproveuser_Click);
+            // 
+            // dgvpanelpending
+            // 
+            this.dgvpanelpending.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvpanelpending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvpanelpending.Location = new System.Drawing.Point(38, 97);
+            this.dgvpanelpending.Name = "dgvpanelpending";
+            this.dgvpanelpending.ReadOnly = true;
+            this.dgvpanelpending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvpanelpending.Size = new System.Drawing.Size(594, 292);
+            this.dgvpanelpending.TabIndex = 0;
+            this.dgvpanelpending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvpanelpending_CellClick);
+            // 
             // btnadmdltuser
             // 
-            this.btnadmdltuser.Location = new System.Drawing.Point(305, 440);
+            this.btnadmdltuser.Location = new System.Drawing.Point(521, 429);
             this.btnadmdltuser.Name = "btnadmdltuser";
             this.btnadmdltuser.Size = new System.Drawing.Size(75, 23);
             this.btnadmdltuser.TabIndex = 12;
             this.btnadmdltuser.Text = "delete";
             this.btnadmdltuser.UseVisualStyleBackColor = true;
+            this.btnadmdltuser.Click += new System.EventHandler(this.btnadmdltuser_Click);
             // 
             // btnadminpendinguser
             // 
-            this.btnadminpendinguser.Location = new System.Drawing.Point(212, 440);
+            this.btnadminpendinguser.Location = new System.Drawing.Point(401, 429);
             this.btnadminpendinguser.Name = "btnadminpendinguser";
             this.btnadminpendinguser.Size = new System.Drawing.Size(75, 23);
             this.btnadminpendinguser.TabIndex = 7;
@@ -213,7 +272,7 @@
             // 
             // btnadminupdateuser
             // 
-            this.btnadminupdateuser.Location = new System.Drawing.Point(114, 440);
+            this.btnadminupdateuser.Location = new System.Drawing.Point(274, 429);
             this.btnadminupdateuser.Name = "btnadminupdateuser";
             this.btnadminupdateuser.Size = new System.Drawing.Size(75, 23);
             this.btnadminupdateuser.TabIndex = 6;
@@ -222,22 +281,23 @@
             // 
             // btnadminviewuser
             // 
-            this.btnadminviewuser.Location = new System.Drawing.Point(6, 440);
+            this.btnadminviewuser.BackColor = System.Drawing.Color.Transparent;
+            this.btnadminviewuser.Location = new System.Drawing.Point(146, 429);
             this.btnadminviewuser.Name = "btnadminviewuser";
             this.btnadminviewuser.Size = new System.Drawing.Size(78, 23);
             this.btnadminviewuser.TabIndex = 5;
             this.btnadminviewuser.Text = "Load";
-            this.btnadminviewuser.UseVisualStyleBackColor = true;
+            this.btnadminviewuser.UseVisualStyleBackColor = false;
             this.btnadminviewuser.Click += new System.EventHandler(this.btnadminviewuser_Click);
             // 
             // dgvadminusers
             // 
             this.dgvadminusers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvadminusers.Location = new System.Drawing.Point(0, 48);
+            this.dgvadminusers.Location = new System.Drawing.Point(48, 54);
             this.dgvadminusers.Name = "dgvadminusers";
             this.dgvadminusers.ReadOnly = true;
             this.dgvadminusers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvadminusers.Size = new System.Drawing.Size(529, 368);
+            this.dgvadminusers.Size = new System.Drawing.Size(656, 359);
             this.dgvadminusers.TabIndex = 4;
             this.dgvadminusers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminusers_CellClick);
             // 
@@ -246,7 +306,7 @@
             this.lbladminuser.AutoSize = true;
             this.lbladminuser.BackColor = System.Drawing.Color.Transparent;
             this.lbladminuser.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbladminuser.Location = new System.Drawing.Point(257, 8);
+            this.lbladminuser.Location = new System.Drawing.Point(307, 14);
             this.lbladminuser.Name = "lbladminuser";
             this.lbladminuser.Size = new System.Drawing.Size(123, 27);
             this.lbladminuser.TabIndex = 0;
@@ -276,7 +336,7 @@
             // 
             // btnadminsertproduct
             // 
-            this.btnadminsertproduct.Location = new System.Drawing.Point(116, 430);
+            this.btnadminsertproduct.Location = new System.Drawing.Point(130, 430);
             this.btnadminsertproduct.Name = "btnadminsertproduct";
             this.btnadminsertproduct.Size = new System.Drawing.Size(75, 23);
             this.btnadminsertproduct.TabIndex = 12;
@@ -286,7 +346,7 @@
             // 
             // btnadmdltproduct
             // 
-            this.btnadmdltproduct.Location = new System.Drawing.Point(324, 430);
+            this.btnadmdltproduct.Location = new System.Drawing.Point(338, 430);
             this.btnadmdltproduct.Name = "btnadmdltproduct";
             this.btnadmdltproduct.Size = new System.Drawing.Size(75, 23);
             this.btnadmdltproduct.TabIndex = 11;
@@ -298,7 +358,7 @@
             // 
             this.lblproductprice.AutoSize = true;
             this.lblproductprice.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproductprice.Location = new System.Drawing.Point(544, 187);
+            this.lblproductprice.Location = new System.Drawing.Point(544, 191);
             this.lblproductprice.Name = "lblproductprice";
             this.lblproductprice.Size = new System.Drawing.Size(41, 17);
             this.lblproductprice.TabIndex = 10;
@@ -308,7 +368,7 @@
             // 
             this.lblproductname.AutoSize = true;
             this.lblproductname.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproductname.Location = new System.Drawing.Point(544, 147);
+            this.lblproductname.Location = new System.Drawing.Point(544, 151);
             this.lblproductname.Name = "lblproductname";
             this.lblproductname.Size = new System.Drawing.Size(46, 17);
             this.lblproductname.TabIndex = 9;
@@ -316,14 +376,14 @@
             // 
             // txtproductprice
             // 
-            this.txtproductprice.Location = new System.Drawing.Point(617, 184);
+            this.txtproductprice.Location = new System.Drawing.Point(617, 188);
             this.txtproductprice.Name = "txtproductprice";
             this.txtproductprice.Size = new System.Drawing.Size(100, 25);
             this.txtproductprice.TabIndex = 8;
             // 
             // txtproductname
             // 
-            this.txtproductname.Location = new System.Drawing.Point(617, 144);
+            this.txtproductname.Location = new System.Drawing.Point(617, 148);
             this.txtproductname.Name = "txtproductname";
             this.txtproductname.Size = new System.Drawing.Size(100, 25);
             this.txtproductname.TabIndex = 7;
@@ -332,7 +392,7 @@
             // 
             this.lblproductid.AutoSize = true;
             this.lblproductid.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproductid.Location = new System.Drawing.Point(541, 106);
+            this.lblproductid.Location = new System.Drawing.Point(541, 110);
             this.lblproductid.Name = "lblproductid";
             this.lblproductid.Size = new System.Drawing.Size(74, 17);
             this.lblproductid.TabIndex = 6;
@@ -340,14 +400,14 @@
             // 
             // txtproductid
             // 
-            this.txtproductid.Location = new System.Drawing.Point(617, 103);
+            this.txtproductid.Location = new System.Drawing.Point(618, 107);
             this.txtproductid.Name = "txtproductid";
             this.txtproductid.Size = new System.Drawing.Size(100, 25);
             this.txtproductid.TabIndex = 5;
             // 
             // btnadmupdateproduct
             // 
-            this.btnadmupdateproduct.Location = new System.Drawing.Point(219, 430);
+            this.btnadmupdateproduct.Location = new System.Drawing.Point(233, 430);
             this.btnadmupdateproduct.Name = "btnadmupdateproduct";
             this.btnadmupdateproduct.Size = new System.Drawing.Size(75, 23);
             this.btnadmupdateproduct.TabIndex = 4;
@@ -368,7 +428,7 @@
             // 
             // btnadmviewproduct
             // 
-            this.btnadmviewproduct.Location = new System.Drawing.Point(8, 430);
+            this.btnadmviewproduct.Location = new System.Drawing.Point(22, 430);
             this.btnadmviewproduct.Name = "btnadmviewproduct";
             this.btnadmviewproduct.Size = new System.Drawing.Size(78, 23);
             this.btnadmviewproduct.TabIndex = 2;
@@ -432,48 +492,32 @@
             this.lbldashboard.TabIndex = 2;
             this.lbldashboard.Text = "Dashboard Panel";
             // 
-            // panelpending
+            // lblpanelpending
             // 
-            this.panelpending.Controls.Add(this.btndeclineuser);
-            this.panelpending.Controls.Add(this.btnapproveuser);
-            this.panelpending.Controls.Add(this.dgvpanelpending);
-            this.panelpending.Location = new System.Drawing.Point(526, 48);
-            this.panelpending.Name = "panelpending";
-            this.panelpending.Size = new System.Drawing.Size(200, 368);
-            this.panelpending.TabIndex = 13;
+            this.lblpanelpending.AutoSize = true;
+            this.lblpanelpending.BackColor = System.Drawing.Color.Transparent;
+            this.lblpanelpending.Font = new System.Drawing.Font("Yu Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpanelpending.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblpanelpending.Location = new System.Drawing.Point(244, 22);
+            this.lblpanelpending.Name = "lblpanelpending";
+            this.lblpanelpending.Size = new System.Drawing.Size(208, 35);
+            this.lblpanelpending.TabIndex = 11;
+            this.lblpanelpending.Text = "Pending Users";
             // 
-            // dgvpanelpending
+            // userpaneladmin
             // 
-            this.dgvpanelpending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpanelpending.Location = new System.Drawing.Point(0, 0);
-            this.dgvpanelpending.Name = "dgvpanelpending";
-            this.dgvpanelpending.ReadOnly = true;
-            this.dgvpanelpending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvpanelpending.Size = new System.Drawing.Size(200, 272);
-            this.dgvpanelpending.TabIndex = 0;
-            this.dgvpanelpending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvpanelpending_CellClick);
-            // 
-            // btnapproveuser
-            // 
-            this.btnapproveuser.ForeColor = System.Drawing.Color.Green;
-            this.btnapproveuser.Location = new System.Drawing.Point(112, 287);
-            this.btnapproveuser.Name = "btnapproveuser";
-            this.btnapproveuser.Size = new System.Drawing.Size(75, 23);
-            this.btnapproveuser.TabIndex = 8;
-            this.btnapproveuser.Text = "Approve";
-            this.btnapproveuser.UseVisualStyleBackColor = true;
-            this.btnapproveuser.Click += new System.EventHandler(this.btnapproveuser_Click);
-            // 
-            // btndeclineuser
-            // 
-            this.btndeclineuser.ForeColor = System.Drawing.Color.Tomato;
-            this.btndeclineuser.Location = new System.Drawing.Point(13, 287);
-            this.btndeclineuser.Name = "btndeclineuser";
-            this.btndeclineuser.Size = new System.Drawing.Size(75, 23);
-            this.btndeclineuser.TabIndex = 9;
-            this.btndeclineuser.Text = "Decline";
-            this.btndeclineuser.UseVisualStyleBackColor = true;
-            this.btndeclineuser.Click += new System.EventHandler(this.btndeclineuser_Click);
+            this.userpaneladmin.BackColor = System.Drawing.Color.IndianRed;
+            this.userpaneladmin.Controls.Add(this.lbladminuser);
+            this.userpaneladmin.Controls.Add(this.btnadmdltuser);
+            this.userpaneladmin.Controls.Add(this.btnadminpendinguser);
+            this.userpaneladmin.Controls.Add(this.btnadminviewuser);
+            this.userpaneladmin.Controls.Add(this.btnadminupdateuser);
+            this.userpaneladmin.Controls.Add(this.dgvadminusers);
+            this.userpaneladmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userpaneladmin.Location = new System.Drawing.Point(3, 3);
+            this.userpaneladmin.Name = "userpaneladmin";
+            this.userpaneladmin.Size = new System.Drawing.Size(743, 474);
+            this.userpaneladmin.TabIndex = 13;
             // 
             // Admin
             // 
@@ -489,11 +533,14 @@
             this.Name = "Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Load);
             this.adminleftpanel.ResumeLayout(false);
             this.adminleftpanel.PerformLayout();
             this.tabControlmain.ResumeLayout(false);
             this.User.ResumeLayout(false);
-            this.User.PerformLayout();
+            this.panelpending.ResumeLayout(false);
+            this.panelpending.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvpanelpending)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvadminusers)).EndInit();
             this.Product.ResumeLayout(false);
             this.Product.PerformLayout();
@@ -502,8 +549,8 @@
             this.Category.PerformLayout();
             this.Dashboard.ResumeLayout(false);
             this.Dashboard.PerformLayout();
-            this.panelpending.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpanelpending)).EndInit();
+            this.userpaneladmin.ResumeLayout(false);
+            this.userpaneladmin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -546,5 +593,8 @@
         private System.Windows.Forms.DataGridView dgvpanelpending;
         private System.Windows.Forms.Button btndeclineuser;
         private System.Windows.Forms.Button btnapproveuser;
+        private System.Windows.Forms.Button btnexitpending;
+        private System.Windows.Forms.Label lblpanelpending;
+        private System.Windows.Forms.Panel userpaneladmin;
     }
 }

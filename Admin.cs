@@ -216,6 +216,22 @@ namespace BakeryShopManagementSystem
                 MessageBox.Show("Failed to decline user");
             }
         }
+
+        private void btnexitpending_Click(object sender, EventArgs e)
+        {
+            panelpending.Visible = false;
+
+        }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+           panelpending.Visible = false;
+        }
+
+        private void btnadmdltuser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
