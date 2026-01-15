@@ -32,22 +32,24 @@
             this.adminleftpanel = new System.Windows.Forms.Panel();
             this.lblshopname = new System.Windows.Forms.Label();
             this.todashboard = new System.Windows.Forms.Button();
-            this.tocategory = new System.Windows.Forms.Button();
+            this.toinventory = new System.Windows.Forms.Button();
             this.toproduct = new System.Windows.Forms.Button();
             this.tousers = new System.Windows.Forms.Button();
             this.tabControlmain = new System.Windows.Forms.TabControl();
             this.User = new System.Windows.Forms.TabPage();
+            this.userpaneladmin = new System.Windows.Forms.Panel();
+            this.lbladminuser = new System.Windows.Forms.Label();
+            this.btnadmdltuser = new System.Windows.Forms.Button();
+            this.btnadminpendinguser = new System.Windows.Forms.Button();
+            this.btnadminviewuser = new System.Windows.Forms.Button();
+            this.btnadminupdateuser = new System.Windows.Forms.Button();
+            this.dgvadminusers = new System.Windows.Forms.DataGridView();
             this.panelpending = new System.Windows.Forms.Panel();
+            this.lblpanelpending = new System.Windows.Forms.Label();
             this.btnexitpending = new System.Windows.Forms.Button();
             this.btndeclineuser = new System.Windows.Forms.Button();
             this.btnapproveuser = new System.Windows.Forms.Button();
             this.dgvpanelpending = new System.Windows.Forms.DataGridView();
-            this.btnadmdltuser = new System.Windows.Forms.Button();
-            this.btnadminpendinguser = new System.Windows.Forms.Button();
-            this.btnadminupdateuser = new System.Windows.Forms.Button();
-            this.btnadminviewuser = new System.Windows.Forms.Button();
-            this.dgvadminusers = new System.Windows.Forms.DataGridView();
-            this.lbladminuser = new System.Windows.Forms.Label();
             this.Product = new System.Windows.Forms.TabPage();
             this.btnadminsertproduct = new System.Windows.Forms.Button();
             this.btnadmdltproduct = new System.Windows.Forms.Button();
@@ -61,23 +63,21 @@
             this.dgvadminproduct = new System.Windows.Forms.DataGridView();
             this.btnadmviewproduct = new System.Windows.Forms.Button();
             this.lbladminproduct = new System.Windows.Forms.Label();
-            this.Category = new System.Windows.Forms.TabPage();
-            this.lbladmincategory = new System.Windows.Forms.Label();
+            this.Inventory = new System.Windows.Forms.TabPage();
+            this.btngotoinventory = new System.Windows.Forms.Button();
             this.Dashboard = new System.Windows.Forms.TabPage();
             this.lbldashboard = new System.Windows.Forms.Label();
-            this.lblpanelpending = new System.Windows.Forms.Label();
-            this.userpaneladmin = new System.Windows.Forms.Panel();
             this.adminleftpanel.SuspendLayout();
             this.tabControlmain.SuspendLayout();
             this.User.SuspendLayout();
+            this.userpaneladmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvadminusers)).BeginInit();
             this.panelpending.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpanelpending)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvadminusers)).BeginInit();
             this.Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvadminproduct)).BeginInit();
-            this.Category.SuspendLayout();
+            this.Inventory.SuspendLayout();
             this.Dashboard.SuspendLayout();
-            this.userpaneladmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnexitadmin
@@ -100,7 +100,7 @@
             this.adminleftpanel.Controls.Add(this.lblshopname);
             this.adminleftpanel.Controls.Add(this.todashboard);
             this.adminleftpanel.Controls.Add(this.btnexitadmin);
-            this.adminleftpanel.Controls.Add(this.tocategory);
+            this.adminleftpanel.Controls.Add(this.toinventory);
             this.adminleftpanel.Controls.Add(this.toproduct);
             this.adminleftpanel.Controls.Add(this.tousers);
             this.adminleftpanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -132,16 +132,16 @@
             this.todashboard.UseVisualStyleBackColor = false;
             this.todashboard.Click += new System.EventHandler(this.todashboard_Click);
             // 
-            // tocategory
+            // toinventory
             // 
-            this.tocategory.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.tocategory.Location = new System.Drawing.Point(46, 275);
-            this.tocategory.Name = "tocategory";
-            this.tocategory.Size = new System.Drawing.Size(105, 49);
-            this.tocategory.TabIndex = 2;
-            this.tocategory.Text = "Category";
-            this.tocategory.UseVisualStyleBackColor = false;
-            this.tocategory.Click += new System.EventHandler(this.tocategory_Click);
+            this.toinventory.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.toinventory.Location = new System.Drawing.Point(46, 275);
+            this.toinventory.Name = "toinventory";
+            this.toinventory.Size = new System.Drawing.Size(105, 49);
+            this.toinventory.TabIndex = 2;
+            this.toinventory.Text = "Inventory";
+            this.toinventory.UseVisualStyleBackColor = false;
+            this.toinventory.Click += new System.EventHandler(this.toinventory_Click);
             // 
             // toproduct
             // 
@@ -170,7 +170,7 @@
             this.tabControlmain.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControlmain.Controls.Add(this.User);
             this.tabControlmain.Controls.Add(this.Product);
-            this.tabControlmain.Controls.Add(this.Category);
+            this.tabControlmain.Controls.Add(this.Inventory);
             this.tabControlmain.Controls.Add(this.Dashboard);
             this.tabControlmain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlmain.Location = new System.Drawing.Point(185, 0);
@@ -191,6 +191,87 @@
             this.User.TabIndex = 0;
             this.User.Text = "Users";
             // 
+            // userpaneladmin
+            // 
+            this.userpaneladmin.BackColor = System.Drawing.Color.IndianRed;
+            this.userpaneladmin.Controls.Add(this.lbladminuser);
+            this.userpaneladmin.Controls.Add(this.btnadmdltuser);
+            this.userpaneladmin.Controls.Add(this.btnadminpendinguser);
+            this.userpaneladmin.Controls.Add(this.btnadminviewuser);
+            this.userpaneladmin.Controls.Add(this.btnadminupdateuser);
+            this.userpaneladmin.Controls.Add(this.dgvadminusers);
+            this.userpaneladmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userpaneladmin.Location = new System.Drawing.Point(3, 3);
+            this.userpaneladmin.Name = "userpaneladmin";
+            this.userpaneladmin.Size = new System.Drawing.Size(743, 474);
+            this.userpaneladmin.TabIndex = 13;
+            // 
+            // lbladminuser
+            // 
+            this.lbladminuser.AutoSize = true;
+            this.lbladminuser.BackColor = System.Drawing.Color.Transparent;
+            this.lbladminuser.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbladminuser.Location = new System.Drawing.Point(307, 14);
+            this.lbladminuser.Name = "lbladminuser";
+            this.lbladminuser.Size = new System.Drawing.Size(123, 27);
+            this.lbladminuser.TabIndex = 0;
+            this.lbladminuser.Text = "User Panel";
+            // 
+            // btnadmdltuser
+            // 
+            this.btnadmdltuser.Location = new System.Drawing.Point(521, 429);
+            this.btnadmdltuser.Name = "btnadmdltuser";
+            this.btnadmdltuser.Size = new System.Drawing.Size(75, 23);
+            this.btnadmdltuser.TabIndex = 12;
+            this.btnadmdltuser.Text = "delete";
+            this.btnadmdltuser.UseVisualStyleBackColor = true;
+            this.btnadmdltuser.Click += new System.EventHandler(this.btnadmdltuser_Click);
+            // 
+            // btnadminpendinguser
+            // 
+            this.btnadminpendinguser.Location = new System.Drawing.Point(401, 429);
+            this.btnadminpendinguser.Name = "btnadminpendinguser";
+            this.btnadminpendinguser.Size = new System.Drawing.Size(75, 23);
+            this.btnadminpendinguser.TabIndex = 7;
+            this.btnadminpendinguser.Text = "Pending";
+            this.btnadminpendinguser.UseVisualStyleBackColor = true;
+            this.btnadminpendinguser.Click += new System.EventHandler(this.btnadminpendinguser_Click);
+            // 
+            // btnadminviewuser
+            // 
+            this.btnadminviewuser.BackColor = System.Drawing.Color.Transparent;
+            this.btnadminviewuser.Location = new System.Drawing.Point(146, 429);
+            this.btnadminviewuser.Name = "btnadminviewuser";
+            this.btnadminviewuser.Size = new System.Drawing.Size(78, 23);
+            this.btnadminviewuser.TabIndex = 5;
+            this.btnadminviewuser.Text = "Load";
+            this.btnadminviewuser.UseVisualStyleBackColor = false;
+            this.btnadminviewuser.Click += new System.EventHandler(this.btnadminviewuser_Click);
+            // 
+            // btnadminupdateuser
+            // 
+            this.btnadminupdateuser.Location = new System.Drawing.Point(274, 429);
+            this.btnadminupdateuser.Name = "btnadminupdateuser";
+            this.btnadminupdateuser.Size = new System.Drawing.Size(75, 23);
+            this.btnadminupdateuser.TabIndex = 6;
+            this.btnadminupdateuser.Text = "Update";
+            this.btnadminupdateuser.UseVisualStyleBackColor = true;
+            this.btnadminupdateuser.Click += new System.EventHandler(this.btnadminupdateuser_Click);
+            // 
+            // dgvadminusers
+            // 
+            this.dgvadminusers.AllowUserToAddRows = false;
+            this.dgvadminusers.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dgvadminusers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvadminusers.GridColor = System.Drawing.Color.LightGreen;
+            this.dgvadminusers.Location = new System.Drawing.Point(48, 54);
+            this.dgvadminusers.MultiSelect = false;
+            this.dgvadminusers.Name = "dgvadminusers";
+            this.dgvadminusers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvadminusers.Size = new System.Drawing.Size(656, 359);
+            this.dgvadminusers.TabIndex = 4;
+            this.dgvadminusers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminusers_CellClick);
+            // 
             // panelpending
             // 
             this.panelpending.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -204,6 +285,18 @@
             this.panelpending.Name = "panelpending";
             this.panelpending.Size = new System.Drawing.Size(743, 474);
             this.panelpending.TabIndex = 13;
+            // 
+            // lblpanelpending
+            // 
+            this.lblpanelpending.AutoSize = true;
+            this.lblpanelpending.BackColor = System.Drawing.Color.Transparent;
+            this.lblpanelpending.Font = new System.Drawing.Font("Yu Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpanelpending.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblpanelpending.Location = new System.Drawing.Point(244, 22);
+            this.lblpanelpending.Name = "lblpanelpending";
+            this.lblpanelpending.Size = new System.Drawing.Size(208, 35);
+            this.lblpanelpending.TabIndex = 11;
+            this.lblpanelpending.Text = "Pending Users";
             // 
             // btnexitpending
             // 
@@ -248,69 +341,6 @@
             this.dgvpanelpending.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvpanelpending.Size = new System.Drawing.Size(594, 292);
             this.dgvpanelpending.TabIndex = 0;
-            this.dgvpanelpending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvpanelpending_CellClick);
-            // 
-            // btnadmdltuser
-            // 
-            this.btnadmdltuser.Location = new System.Drawing.Point(521, 429);
-            this.btnadmdltuser.Name = "btnadmdltuser";
-            this.btnadmdltuser.Size = new System.Drawing.Size(75, 23);
-            this.btnadmdltuser.TabIndex = 12;
-            this.btnadmdltuser.Text = "delete";
-            this.btnadmdltuser.UseVisualStyleBackColor = true;
-            this.btnadmdltuser.Click += new System.EventHandler(this.btnadmdltuser_Click);
-            // 
-            // btnadminpendinguser
-            // 
-            this.btnadminpendinguser.Location = new System.Drawing.Point(401, 429);
-            this.btnadminpendinguser.Name = "btnadminpendinguser";
-            this.btnadminpendinguser.Size = new System.Drawing.Size(75, 23);
-            this.btnadminpendinguser.TabIndex = 7;
-            this.btnadminpendinguser.Text = "Pending";
-            this.btnadminpendinguser.UseVisualStyleBackColor = true;
-            this.btnadminpendinguser.Click += new System.EventHandler(this.btnadminpendinguser_Click);
-            // 
-            // btnadminupdateuser
-            // 
-            this.btnadminupdateuser.Location = new System.Drawing.Point(274, 429);
-            this.btnadminupdateuser.Name = "btnadminupdateuser";
-            this.btnadminupdateuser.Size = new System.Drawing.Size(75, 23);
-            this.btnadminupdateuser.TabIndex = 6;
-            this.btnadminupdateuser.Text = "Update";
-            this.btnadminupdateuser.UseVisualStyleBackColor = true;
-            // 
-            // btnadminviewuser
-            // 
-            this.btnadminviewuser.BackColor = System.Drawing.Color.Transparent;
-            this.btnadminviewuser.Location = new System.Drawing.Point(146, 429);
-            this.btnadminviewuser.Name = "btnadminviewuser";
-            this.btnadminviewuser.Size = new System.Drawing.Size(78, 23);
-            this.btnadminviewuser.TabIndex = 5;
-            this.btnadminviewuser.Text = "Load";
-            this.btnadminviewuser.UseVisualStyleBackColor = false;
-            this.btnadminviewuser.Click += new System.EventHandler(this.btnadminviewuser_Click);
-            // 
-            // dgvadminusers
-            // 
-            this.dgvadminusers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvadminusers.Location = new System.Drawing.Point(48, 54);
-            this.dgvadminusers.Name = "dgvadminusers";
-            this.dgvadminusers.ReadOnly = true;
-            this.dgvadminusers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvadminusers.Size = new System.Drawing.Size(656, 359);
-            this.dgvadminusers.TabIndex = 4;
-            this.dgvadminusers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminusers_CellClick);
-            // 
-            // lbladminuser
-            // 
-            this.lbladminuser.AutoSize = true;
-            this.lbladminuser.BackColor = System.Drawing.Color.Transparent;
-            this.lbladminuser.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbladminuser.Location = new System.Drawing.Point(307, 14);
-            this.lbladminuser.Name = "lbladminuser";
-            this.lbladminuser.Size = new System.Drawing.Size(123, 27);
-            this.lbladminuser.TabIndex = 0;
-            this.lbladminuser.Text = "User Panel";
             // 
             // Product
             // 
@@ -336,9 +366,9 @@
             // 
             // btnadminsertproduct
             // 
-            this.btnadminsertproduct.Location = new System.Drawing.Point(130, 430);
+            this.btnadminsertproduct.Location = new System.Drawing.Point(143, 430);
             this.btnadminsertproduct.Name = "btnadminsertproduct";
-            this.btnadminsertproduct.Size = new System.Drawing.Size(75, 23);
+            this.btnadminsertproduct.Size = new System.Drawing.Size(97, 23);
             this.btnadminsertproduct.TabIndex = 12;
             this.btnadminsertproduct.Text = "insert";
             this.btnadminsertproduct.UseVisualStyleBackColor = true;
@@ -346,9 +376,9 @@
             // 
             // btnadmdltproduct
             // 
-            this.btnadmdltproduct.Location = new System.Drawing.Point(338, 430);
+            this.btnadmdltproduct.Location = new System.Drawing.Point(388, 430);
             this.btnadmdltproduct.Name = "btnadmdltproduct";
-            this.btnadmdltproduct.Size = new System.Drawing.Size(75, 23);
+            this.btnadmdltproduct.Size = new System.Drawing.Size(92, 23);
             this.btnadmdltproduct.TabIndex = 11;
             this.btnadmdltproduct.Text = "delete";
             this.btnadmdltproduct.UseVisualStyleBackColor = true;
@@ -358,7 +388,7 @@
             // 
             this.lblproductprice.AutoSize = true;
             this.lblproductprice.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproductprice.Location = new System.Drawing.Point(544, 191);
+            this.lblproductprice.Location = new System.Drawing.Point(545, 211);
             this.lblproductprice.Name = "lblproductprice";
             this.lblproductprice.Size = new System.Drawing.Size(41, 17);
             this.lblproductprice.TabIndex = 10;
@@ -368,7 +398,7 @@
             // 
             this.lblproductname.AutoSize = true;
             this.lblproductname.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproductname.Location = new System.Drawing.Point(544, 151);
+            this.lblproductname.Location = new System.Drawing.Point(545, 161);
             this.lblproductname.Name = "lblproductname";
             this.lblproductname.Size = new System.Drawing.Size(46, 17);
             this.lblproductname.TabIndex = 9;
@@ -376,14 +406,14 @@
             // 
             // txtproductprice
             // 
-            this.txtproductprice.Location = new System.Drawing.Point(617, 188);
+            this.txtproductprice.Location = new System.Drawing.Point(618, 208);
             this.txtproductprice.Name = "txtproductprice";
             this.txtproductprice.Size = new System.Drawing.Size(100, 25);
             this.txtproductprice.TabIndex = 8;
             // 
             // txtproductname
             // 
-            this.txtproductname.Location = new System.Drawing.Point(617, 148);
+            this.txtproductname.Location = new System.Drawing.Point(618, 158);
             this.txtproductname.Name = "txtproductname";
             this.txtproductname.Size = new System.Drawing.Size(100, 25);
             this.txtproductname.TabIndex = 7;
@@ -402,14 +432,15 @@
             // 
             this.txtproductid.Location = new System.Drawing.Point(618, 107);
             this.txtproductid.Name = "txtproductid";
+            this.txtproductid.ReadOnly = true;
             this.txtproductid.Size = new System.Drawing.Size(100, 25);
             this.txtproductid.TabIndex = 5;
             // 
             // btnadmupdateproduct
             // 
-            this.btnadmupdateproduct.Location = new System.Drawing.Point(233, 430);
+            this.btnadmupdateproduct.Location = new System.Drawing.Point(262, 430);
             this.btnadmupdateproduct.Name = "btnadmupdateproduct";
-            this.btnadmupdateproduct.Size = new System.Drawing.Size(75, 23);
+            this.btnadmupdateproduct.Size = new System.Drawing.Size(99, 23);
             this.btnadmupdateproduct.TabIndex = 4;
             this.btnadmupdateproduct.Text = "update";
             this.btnadmupdateproduct.UseVisualStyleBackColor = true;
@@ -418,19 +449,21 @@
             // dgvadminproduct
             // 
             this.dgvadminproduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvadminproduct.Location = new System.Drawing.Point(0, 38);
+            this.dgvadminproduct.Location = new System.Drawing.Point(3, 44);
+            this.dgvadminproduct.MultiSelect = false;
             this.dgvadminproduct.Name = "dgvadminproduct";
             this.dgvadminproduct.ReadOnly = true;
             this.dgvadminproduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvadminproduct.Size = new System.Drawing.Size(529, 368);
+            this.dgvadminproduct.Size = new System.Drawing.Size(526, 368);
             this.dgvadminproduct.TabIndex = 3;
             this.dgvadminproduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminproduct_CellClick);
+            this.dgvadminproduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminproduct_CellContentClick);
             // 
             // btnadmviewproduct
             // 
             this.btnadmviewproduct.Location = new System.Drawing.Point(22, 430);
             this.btnadmviewproduct.Name = "btnadmviewproduct";
-            this.btnadmviewproduct.Size = new System.Drawing.Size(78, 23);
+            this.btnadmviewproduct.Size = new System.Drawing.Size(93, 23);
             this.btnadmviewproduct.TabIndex = 2;
             this.btnadmviewproduct.Text = "Load";
             this.btnadmviewproduct.UseVisualStyleBackColor = true;
@@ -447,27 +480,29 @@
             this.lbladminproduct.TabIndex = 1;
             this.lbladminproduct.Text = "Product Panel";
             // 
-            // Category
+            // Inventory
             // 
-            this.Category.BackColor = System.Drawing.Color.Teal;
-            this.Category.Controls.Add(this.lbladmincategory);
-            this.Category.Location = new System.Drawing.Point(4, 4);
-            this.Category.Name = "Category";
-            this.Category.Padding = new System.Windows.Forms.Padding(3);
-            this.Category.Size = new System.Drawing.Size(749, 480);
-            this.Category.TabIndex = 2;
-            this.Category.Text = "Category";
+            this.Inventory.BackColor = System.Drawing.Color.Teal;
+            this.Inventory.Controls.Add(this.btngotoinventory);
+            this.Inventory.Location = new System.Drawing.Point(4, 4);
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Padding = new System.Windows.Forms.Padding(3);
+            this.Inventory.Size = new System.Drawing.Size(749, 480);
+            this.Inventory.TabIndex = 2;
+            this.Inventory.Text = "Inventory";
             // 
-            // lbladmincategory
+            // btngotoinventory
             // 
-            this.lbladmincategory.AutoSize = true;
-            this.lbladmincategory.BackColor = System.Drawing.Color.Transparent;
-            this.lbladmincategory.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbladmincategory.Location = new System.Drawing.Point(218, 8);
-            this.lbladmincategory.Name = "lbladmincategory";
-            this.lbladmincategory.Size = new System.Drawing.Size(166, 27);
-            this.lbladmincategory.TabIndex = 1;
-            this.lbladmincategory.Text = "Category Panel";
+            this.btngotoinventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btngotoinventory.Font = new System.Drawing.Font("Yu Gothic UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngotoinventory.ForeColor = System.Drawing.Color.Firebrick;
+            this.btngotoinventory.Location = new System.Drawing.Point(3, 3);
+            this.btngotoinventory.Name = "btngotoinventory";
+            this.btngotoinventory.Size = new System.Drawing.Size(743, 474);
+            this.btngotoinventory.TabIndex = 2;
+            this.btngotoinventory.Text = "Move to Inventory";
+            this.btngotoinventory.UseVisualStyleBackColor = true;
+            this.btngotoinventory.Click += new System.EventHandler(this.btngotoinventory_Click);
             // 
             // Dashboard
             // 
@@ -486,38 +521,11 @@
             this.lbldashboard.AutoSize = true;
             this.lbldashboard.BackColor = System.Drawing.Color.Transparent;
             this.lbldashboard.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldashboard.Location = new System.Drawing.Point(210, 8);
+            this.lbldashboard.Location = new System.Drawing.Point(311, 10);
             this.lbldashboard.Name = "lbldashboard";
-            this.lbldashboard.Size = new System.Drawing.Size(186, 27);
+            this.lbldashboard.Size = new System.Drawing.Size(122, 27);
             this.lbldashboard.TabIndex = 2;
-            this.lbldashboard.Text = "Dashboard Panel";
-            // 
-            // lblpanelpending
-            // 
-            this.lblpanelpending.AutoSize = true;
-            this.lblpanelpending.BackColor = System.Drawing.Color.Transparent;
-            this.lblpanelpending.Font = new System.Drawing.Font("Yu Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpanelpending.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblpanelpending.Location = new System.Drawing.Point(244, 22);
-            this.lblpanelpending.Name = "lblpanelpending";
-            this.lblpanelpending.Size = new System.Drawing.Size(208, 35);
-            this.lblpanelpending.TabIndex = 11;
-            this.lblpanelpending.Text = "Pending Users";
-            // 
-            // userpaneladmin
-            // 
-            this.userpaneladmin.BackColor = System.Drawing.Color.IndianRed;
-            this.userpaneladmin.Controls.Add(this.lbladminuser);
-            this.userpaneladmin.Controls.Add(this.btnadmdltuser);
-            this.userpaneladmin.Controls.Add(this.btnadminpendinguser);
-            this.userpaneladmin.Controls.Add(this.btnadminviewuser);
-            this.userpaneladmin.Controls.Add(this.btnadminupdateuser);
-            this.userpaneladmin.Controls.Add(this.dgvadminusers);
-            this.userpaneladmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userpaneladmin.Location = new System.Drawing.Point(3, 3);
-            this.userpaneladmin.Name = "userpaneladmin";
-            this.userpaneladmin.Size = new System.Drawing.Size(743, 474);
-            this.userpaneladmin.TabIndex = 13;
+            this.lbldashboard.Text = "Dashboard";
             // 
             // Admin
             // 
@@ -538,19 +546,18 @@
             this.adminleftpanel.PerformLayout();
             this.tabControlmain.ResumeLayout(false);
             this.User.ResumeLayout(false);
+            this.userpaneladmin.ResumeLayout(false);
+            this.userpaneladmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvadminusers)).EndInit();
             this.panelpending.ResumeLayout(false);
             this.panelpending.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpanelpending)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvadminusers)).EndInit();
             this.Product.ResumeLayout(false);
             this.Product.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvadminproduct)).EndInit();
-            this.Category.ResumeLayout(false);
-            this.Category.PerformLayout();
+            this.Inventory.ResumeLayout(false);
             this.Dashboard.ResumeLayout(false);
             this.Dashboard.PerformLayout();
-            this.userpaneladmin.ResumeLayout(false);
-            this.userpaneladmin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -561,17 +568,16 @@
         private System.Windows.Forms.Panel adminleftpanel;
         private System.Windows.Forms.Button tousers;
         private System.Windows.Forms.Button todashboard;
-        private System.Windows.Forms.Button tocategory;
+        private System.Windows.Forms.Button toinventory;
         private System.Windows.Forms.Button toproduct;
         private System.Windows.Forms.Label lblshopname;
         private System.Windows.Forms.TabControl tabControlmain;
         private System.Windows.Forms.TabPage User;
         private System.Windows.Forms.TabPage Product;
-        private System.Windows.Forms.TabPage Category;
+        private System.Windows.Forms.TabPage Inventory;
         private System.Windows.Forms.TabPage Dashboard;
         private System.Windows.Forms.Label lbladminuser;
         private System.Windows.Forms.Label lbladminproduct;
-        private System.Windows.Forms.Label lbladmincategory;
         private System.Windows.Forms.Label lbldashboard;
         private System.Windows.Forms.DataGridView dgvadminproduct;
         private System.Windows.Forms.Button btnadmviewproduct;
@@ -596,5 +602,6 @@
         private System.Windows.Forms.Button btnexitpending;
         private System.Windows.Forms.Label lblpanelpending;
         private System.Windows.Forms.Panel userpaneladmin;
+        private System.Windows.Forms.Button btngotoinventory;
     }
 }

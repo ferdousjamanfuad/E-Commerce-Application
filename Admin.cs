@@ -50,9 +50,9 @@ namespace BakeryShopManagementSystem
 
         }
 
-        private void tocategory_Click(object sender, EventArgs e)
+        private void toinventory_Click(object sender, EventArgs e)
         {
-            tabControlmain.SelectedTab = Category;
+            tabControlmain.SelectedTab = Inventory;
         }
 
         private void todashboard_Click(object sender, EventArgs e)
@@ -169,11 +169,6 @@ namespace BakeryShopManagementSystem
             ViewUsers();
         }
 
-        private void dgvpanelpending_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnapproveuser_Click(object sender, EventArgs e)
         {
             if (dgvpanelpending.SelectedRows.Count == 0)
@@ -230,7 +225,72 @@ namespace BakeryShopManagementSystem
 
         private void btnadmdltuser_Click(object sender, EventArgs e)
         {
+            if (dgvadminusers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a user first");
+                return;
+            }
+            int userId = Convert.ToInt32(
+           dgvadminusers.SelectedRows[0].Cells["user_id"].Value);
+            string role = dgvadminusers.SelectedRows[0]
+                         .Cells["role"].Value.ToString();
+            if (role == "Admin") {
+                MessageBox.Show("Admin can't be removed"); return; }
 
+            string query = "DELETE FROM users WHERE user_id = " + userId;
+            bool success = DatabaseHelper.Execute(query);
+
+            if (success)
+            {
+                MessageBox.Show("User deleted successfully");
+                ViewUsers(); 
+            }
+            else
+            {
+                MessageBox.Show("Failed to delete user");
+            }
+        }
+            private void btnadminupdateuser_Click(object sender, EventArgs e)
+            {
+            if (dgvadminusers.SelectedRows.Count == 0) return;
+
+            string role = dgvadminusers.SelectedRows[0]
+                          .Cells["role"].Value.ToString();
+            if (role == "Admin")
+            {
+                MessageBox.Show("Admin is immutable");
+                return;
+            }
+            var row = dgvadminusers.SelectedRows[0];
+
+            int id = Convert.ToInt32(row.Cells["user_id"].Value);
+            string name = row.Cells["username"].Value.ToString();
+            string email = row.Cells["email"].Value.ToString();
+            string newRole = row.Cells["role"].Value.ToString();
+
+            if (newRole == "Admin")
+            {
+                MessageBox.Show("Can't assign Admin role");
+                return;
+            }
+
+            string q = $"UPDATE users SET username='{name}', email='{email}', role='{newRole}' WHERE user_id={id}";
+            DatabaseHelper.Execute(q);
+            MessageBox.Show("User updated successfully");
+            ViewUsers();
+        }
+
+
+        private void dgvadminproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btngotoinventory_Click(object sender, EventArgs e)
+        {
+            InventoryManager im=new InventoryManager();
+            im.Show();
+            this.Hide();
         }
     }
 }

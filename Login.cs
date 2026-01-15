@@ -66,13 +66,13 @@ namespace BakeryShopManagementSystem
                         Cashier cashier = new Cashier();
                         cashier.Show();
                     }
-                    else if (Session.Role == "ProductionManager")
+                    else if (Session.Role == "Production Manager")
                     {
                         this.Hide();
                         ProductionManager pm = new ProductionManager();
                         pm.Show();
                     }
-                    else if (Session.Role == "InventoryManager")
+                    else if (Session.Role == "Inventory Manager")
                     {
                         this.Hide();
                         InventoryManager im = new InventoryManager();
