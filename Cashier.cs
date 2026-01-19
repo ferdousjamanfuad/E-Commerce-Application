@@ -17,12 +17,5 @@ namespace BakeryShopManagementSystem
         {
             InitializeComponent();
         }
-
-        private void btnexitemployee_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Close();
-        }
     }
 }
