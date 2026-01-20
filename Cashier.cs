@@ -14,9 +14,9 @@ namespace BakeryShopManagementSystem
         }
         private void btncashierloadproduct_Click(object sender, EventArgs e)
         {
-            dgvCashierloadProducts.DataSource =
-                DatabaseHelper.GetData(
-                    "SELECT * FROM products");
+            Cashier_Show_Product csp = new Cashier_Show_Product();
+            csp.Show();
+            
         }
         private void btntoPandB_Click(object sender, EventArgs e)
         {
@@ -232,6 +232,19 @@ namespace BakeryShopManagementSystem
 
                txtCquantity.Clear();
             }
+        }
+
+        private void btncashierprofile_Click(object sender, EventArgs e)
+        {
+            Cashier_Profile cp = new Cashier_Profile();
+            cp.Show();
+            this.Hide();
+        }
+
+        private void blnCsales_Click(object sender, EventArgs e)
+        {
+            Cashier_Sales cs=new Cashier_Sales();
+            cs.Show();
         }
     }
 }

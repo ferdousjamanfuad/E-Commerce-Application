@@ -77,5 +77,6 @@ namespace BakeryShopManagementSystem
         public static int UserId { get; set; }
         public static string Name { get; set; }
         public static string Role { get; set; }
+
     }
 }

@@ -109,6 +109,30 @@
     <Compile Include="Cashier.Designer.cs">
       <DependentUpon>Cashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cashier_PassChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier_PassChange.Designer.cs">
+      <DependentUpon>Cashier_PassChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier_Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier_Profile.Designer.cs">
+      <DependentUpon>Cashier_Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier_Sales.Designer.cs">
+      <DependentUpon>Cashier_Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cashier_Show_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cashier_Show_Product.Designer.cs">
+      <DependentUpon>Cashier_Show_Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="InventoryManager.cs">
       <SubType>Form</SubType>
@@ -153,6 +177,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cashier.resx">
       <DependentUpon>Cashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier_PassChange.resx">
+      <DependentUpon>Cashier_PassChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier_Profile.resx">
+      <DependentUpon>Cashier_Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier_Sales.resx">
+      <DependentUpon>Cashier_Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cashier_Show_Product.resx">
+      <DependentUpon>Cashier_Show_Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryManager.resx">
       <DependentUpon>InventoryManager.cs</DependentUpon>
