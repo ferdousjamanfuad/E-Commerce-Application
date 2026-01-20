@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cashier));
             this.lblPhoneNo = new System.Windows.Forms.Label();
-            this.SelectPro = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panelCashierlbl = new System.Windows.Forms.Panel();
             this.btnCremovefromcart = new System.Windows.Forms.Button();
             this.btnCclear = new System.Windows.Forms.Button();
@@ -43,23 +43,24 @@
             this.lblCprice = new System.Windows.Forms.Label();
             this.lblCproductname = new System.Windows.Forms.Label();
             this.panelCcart = new System.Windows.Forms.Panel();
-            this.btnCrefreshcart = new System.Windows.Forms.Button();
             this.btnCBill = new System.Windows.Forms.Button();
             this.lblCtotal = new System.Windows.Forms.Label();
             this.dgvCcart = new System.Windows.Forms.DataGridView();
             this.panelCloadproduct = new System.Windows.Forms.Panel();
             this.btnCrefreshproduct = new System.Windows.Forms.Button();
             this.dgvCashierloadProducts = new System.Windows.Forms.DataGridView();
-            this.lblCphonenumber = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
+            this.tabControlCmain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblnumber = new System.Windows.Forms.Label();
+            this.lblname = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btntoPandB = new System.Windows.Forms.Button();
             this.txtCphonenumber = new System.Windows.Forms.TextBox();
             this.txtCcustomername = new System.Windows.Forms.TextBox();
+            this.lblCphonenumber = new System.Windows.Forms.Label();
             this.lblCcustomername = new System.Windows.Forms.Label();
-            this.tabControlCmain = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,16 +77,16 @@
             this.panelCtop = new System.Windows.Forms.Panel();
             this.panelCleft = new System.Windows.Forms.Panel();
             this.orderdetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SelectPro.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panelCashierlbl.SuspendLayout();
             this.panelCcart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCcart)).BeginInit();
             this.panelCloadproduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCashierloadProducts)).BeginInit();
+            this.tabControlCmain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControlCmain.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -105,18 +106,18 @@
             this.lblPhoneNo.TabIndex = 2;
             this.lblPhoneNo.Text = "Phone No:";
             // 
-            // SelectPro
+            // tabPage3
             // 
-            this.SelectPro.BackColor = System.Drawing.Color.Gainsboro;
-            this.SelectPro.Controls.Add(this.panelCashierlbl);
-            this.SelectPro.Controls.Add(this.panelCcart);
-            this.SelectPro.Controls.Add(this.panelCloadproduct);
-            this.SelectPro.Location = new System.Drawing.Point(4, 25);
-            this.SelectPro.Name = "SelectPro";
-            this.SelectPro.Padding = new System.Windows.Forms.Padding(3);
-            this.SelectPro.Size = new System.Drawing.Size(782, 428);
-            this.SelectPro.TabIndex = 1;
-            this.SelectPro.Text = "   Product And Billing   ";
+            this.tabPage3.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage3.Controls.Add(this.panelCashierlbl);
+            this.tabPage3.Controls.Add(this.panelCcart);
+            this.tabPage3.Controls.Add(this.panelCloadproduct);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(782, 431);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "   Product And Billing   ";
             // 
             // panelCashierlbl
             // 
@@ -130,7 +131,7 @@
             this.panelCashierlbl.Controls.Add(this.lblCquantity);
             this.panelCashierlbl.Controls.Add(this.lblCprice);
             this.panelCashierlbl.Controls.Add(this.lblCproductname);
-            this.panelCashierlbl.Location = new System.Drawing.Point(5, 240);
+            this.panelCashierlbl.Location = new System.Drawing.Point(5, 248);
             this.panelCashierlbl.Margin = new System.Windows.Forms.Padding(2);
             this.panelCashierlbl.Name = "panelCashierlbl";
             this.panelCashierlbl.Size = new System.Drawing.Size(464, 173);
@@ -145,6 +146,7 @@
             this.btnCremovefromcart.Size = new System.Drawing.Size(68, 41);
             this.btnCremovefromcart.TabIndex = 8;
             this.btnCremovefromcart.UseVisualStyleBackColor = true;
+            this.btnCremovefromcart.Click += new System.EventHandler(this.btnCremovefromcart_Click);
             // 
             // btnCclear
             // 
@@ -155,6 +157,7 @@
             this.btnCclear.Size = new System.Drawing.Size(37, 30);
             this.btnCclear.TabIndex = 7;
             this.btnCclear.UseVisualStyleBackColor = true;
+            this.btnCclear.Click += new System.EventHandler(this.btnCclear_Click);
             // 
             // btnCtocart
             // 
@@ -165,6 +168,7 @@
             this.btnCtocart.Size = new System.Drawing.Size(71, 41);
             this.btnCtocart.TabIndex = 6;
             this.btnCtocart.UseVisualStyleBackColor = true;
+            this.btnCtocart.Click += new System.EventHandler(this.btnCtocart_Click);
             // 
             // txtCquantity
             // 
@@ -225,27 +229,14 @@
             // panelCcart
             // 
             this.panelCcart.BackColor = System.Drawing.Color.White;
-            this.panelCcart.Controls.Add(this.btnCrefreshcart);
             this.panelCcart.Controls.Add(this.btnCBill);
             this.panelCcart.Controls.Add(this.lblCtotal);
             this.panelCcart.Controls.Add(this.dgvCcart);
-            this.panelCcart.Location = new System.Drawing.Point(474, 6);
+            this.panelCcart.Location = new System.Drawing.Point(487, 6);
             this.panelCcart.Margin = new System.Windows.Forms.Padding(2);
             this.panelCcart.Name = "panelCcart";
             this.panelCcart.Size = new System.Drawing.Size(290, 407);
             this.panelCcart.TabIndex = 1;
-            // 
-            // btnCrefreshcart
-            // 
-            this.btnCrefreshcart.FlatAppearance.BorderSize = 0;
-            this.btnCrefreshcart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrefreshcart.Image = ((System.Drawing.Image)(resources.GetObject("btnCrefreshcart.Image")));
-            this.btnCrefreshcart.Location = new System.Drawing.Point(125, 231);
-            this.btnCrefreshcart.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCrefreshcart.Name = "btnCrefreshcart";
-            this.btnCrefreshcart.Size = new System.Drawing.Size(29, 28);
-            this.btnCrefreshcart.TabIndex = 10;
-            this.btnCrefreshcart.UseVisualStyleBackColor = true;
             // 
             // btnCBill
             // 
@@ -260,6 +251,7 @@
             this.btnCBill.Text = "Bill";
             this.btnCBill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCBill.UseVisualStyleBackColor = true;
+            this.btnCBill.Click += new System.EventHandler(this.btnCBill_Click);
             // 
             // lblCtotal
             // 
@@ -274,10 +266,13 @@
             // 
             // dgvCcart
             // 
+            this.dgvCcart.AllowUserToAddRows = false;
+            this.dgvCcart.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCcart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCcart.Location = new System.Drawing.Point(9, 8);
             this.dgvCcart.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCcart.Name = "dgvCcart";
+            this.dgvCcart.ReadOnly = true;
             this.dgvCcart.RowHeadersWidth = 51;
             this.dgvCcart.RowTemplate.Height = 24;
             this.dgvCcart.Size = new System.Drawing.Size(272, 219);
@@ -305,27 +300,23 @@
             this.btnCrefreshproduct.Size = new System.Drawing.Size(29, 28);
             this.btnCrefreshproduct.TabIndex = 8;
             this.btnCrefreshproduct.UseVisualStyleBackColor = true;
+            this.btnCrefreshproduct.Click += new System.EventHandler(this.btnCrefreshproduct_Click);
             // 
             // dgvCashierloadProducts
             // 
+            this.dgvCashierloadProducts.AllowUserToAddRows = false;
+            this.dgvCashierloadProducts.AllowUserToDeleteRows = false;
+            this.dgvCashierloadProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCashierloadProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCashierloadProducts.Location = new System.Drawing.Point(10, 11);
             this.dgvCashierloadProducts.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCashierloadProducts.Name = "dgvCashierloadProducts";
+            this.dgvCashierloadProducts.ReadOnly = true;
             this.dgvCashierloadProducts.RowHeadersWidth = 51;
             this.dgvCashierloadProducts.RowTemplate.Height = 24;
             this.dgvCashierloadProducts.Size = new System.Drawing.Size(444, 184);
             this.dgvCashierloadProducts.TabIndex = 0;
-            // 
-            // lblCphonenumber
-            // 
-            this.lblCphonenumber.AutoSize = true;
-            this.lblCphonenumber.Cursor = System.Windows.Forms.Cursors.No;
-            this.lblCphonenumber.Location = new System.Drawing.Point(385, 121);
-            this.lblCphonenumber.Name = "lblCphonenumber";
-            this.lblCphonenumber.Size = new System.Drawing.Size(79, 16);
-            this.lblCphonenumber.TabIndex = 1;
-            this.lblCphonenumber.Text = "Phone No:";
+            this.dgvCashierloadProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCashierloadProducts_CellClick);
             // 
             // lblCustomerName
             // 
@@ -337,10 +328,26 @@
             this.lblCustomerName.TabIndex = 1;
             this.lblCustomerName.Text = "Customer Name:";
             // 
+            // tabControlCmain
+            // 
+            this.tabControlCmain.Controls.Add(this.tabPage1);
+            this.tabControlCmain.Controls.Add(this.tabPage3);
+            this.tabControlCmain.Controls.Add(this.tabPage2);
+            this.tabControlCmain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabControlCmain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlCmain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlCmain.Location = new System.Drawing.Point(129, 48);
+            this.tabControlCmain.Name = "tabControlCmain";
+            this.tabControlCmain.SelectedIndex = 0;
+            this.tabControlCmain.Size = new System.Drawing.Size(790, 460);
+            this.tabControlCmain.TabIndex = 11;
+            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FloralWhite;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage1.Controls.Add(this.lblnumber);
+            this.tabPage1.Controls.Add(this.lblname);
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.btntoPandB);
@@ -353,9 +360,27 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(782, 428);
+            this.tabPage1.Size = new System.Drawing.Size(782, 431);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Customer Details   ";
+            // 
+            // lblnumber
+            // 
+            this.lblnumber.AutoSize = true;
+            this.lblnumber.Location = new System.Drawing.Point(417, 125);
+            this.lblnumber.Name = "lblnumber";
+            this.lblnumber.Size = new System.Drawing.Size(61, 16);
+            this.lblnumber.TabIndex = 8;
+            this.lblnumber.Text = "Number";
+            // 
+            // lblname
+            // 
+            this.lblname.AutoSize = true;
+            this.lblname.Location = new System.Drawing.Point(430, 84);
+            this.lblname.Name = "lblname";
+            this.lblname.Size = new System.Drawing.Size(48, 16);
+            this.lblname.TabIndex = 7;
+            this.lblname.Text = "Name";
             // 
             // pictureBox2
             // 
@@ -384,17 +409,18 @@
             this.btntoPandB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntoPandB.Image = ((System.Drawing.Image)(resources.GetObject("btntoPandB.Image")));
             this.btntoPandB.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btntoPandB.Location = new System.Drawing.Point(460, 173);
+            this.btntoPandB.Location = new System.Drawing.Point(489, 173);
             this.btntoPandB.Name = "btntoPandB";
             this.btntoPandB.Size = new System.Drawing.Size(64, 28);
             this.btntoPandB.TabIndex = 4;
             this.btntoPandB.Text = "Next";
             this.btntoPandB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btntoPandB.UseVisualStyleBackColor = true;
+            this.btntoPandB.Click += new System.EventHandler(this.btntoPandB_Click);
             // 
             // txtCphonenumber
             // 
-            this.txtCphonenumber.Location = new System.Drawing.Point(484, 119);
+            this.txtCphonenumber.Location = new System.Drawing.Point(486, 119);
             this.txtCphonenumber.Name = "txtCphonenumber";
             this.txtCphonenumber.Size = new System.Drawing.Size(119, 22);
             this.txtCphonenumber.TabIndex = 3;
@@ -406,28 +432,23 @@
             this.txtCcustomername.Size = new System.Drawing.Size(119, 22);
             this.txtCcustomername.TabIndex = 2;
             // 
+            // lblCphonenumber
+            // 
+            this.lblCphonenumber.AutoSize = true;
+            this.lblCphonenumber.Cursor = System.Windows.Forms.Cursors.No;
+            this.lblCphonenumber.Location = new System.Drawing.Point(385, 121);
+            this.lblCphonenumber.Name = "lblCphonenumber";
+            this.lblCphonenumber.Size = new System.Drawing.Size(0, 16);
+            this.lblCphonenumber.TabIndex = 1;
+            // 
             // lblCcustomername
             // 
             this.lblCcustomername.AutoSize = true;
             this.lblCcustomername.Cursor = System.Windows.Forms.Cursors.No;
             this.lblCcustomername.Location = new System.Drawing.Point(343, 84);
             this.lblCcustomername.Name = "lblCcustomername";
-            this.lblCcustomername.Size = new System.Drawing.Size(121, 16);
+            this.lblCcustomername.Size = new System.Drawing.Size(0, 16);
             this.lblCcustomername.TabIndex = 0;
-            this.lblCcustomername.Text = "Customer Name:";
-            // 
-            // tabControlCmain
-            // 
-            this.tabControlCmain.Controls.Add(this.tabPage1);
-            this.tabControlCmain.Controls.Add(this.SelectPro);
-            this.tabControlCmain.Controls.Add(this.tabPage2);
-            this.tabControlCmain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabControlCmain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControlCmain.Location = new System.Drawing.Point(129, 51);
-            this.tabControlCmain.Name = "tabControlCmain";
-            this.tabControlCmain.SelectedIndex = 0;
-            this.tabControlCmain.Size = new System.Drawing.Size(790, 457);
-            this.tabControlCmain.TabIndex = 11;
             // 
             // tabPage2
             // 
@@ -440,7 +461,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(782, 428);
+            this.tabPage2.Size = new System.Drawing.Size(782, 431);
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "Bill Info";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -460,12 +481,12 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Cursor = System.Windows.Forms.Cursors.No;
-            this.label7.Font = new System.Drawing.Font("Pristina", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(86, 27);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(107, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(351, 35);
+            this.label7.Size = new System.Drawing.Size(266, 31);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Thank You For Visiting Our Store";
+            this.label7.Text = "Thanks For Visiting";
             // 
             // pictureBox3
             // 
@@ -512,6 +533,7 @@
             this.btnClogout.Size = new System.Drawing.Size(36, 40);
             this.btnClogout.TabIndex = 0;
             this.btnClogout.UseVisualStyleBackColor = false;
+            this.btnClogout.Click += new System.EventHandler(this.btnClogout_Click);
             // 
             // blnCsales
             // 
@@ -549,6 +571,7 @@
             this.btncashierloadproduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btncashierloadproduct.UseMnemonic = false;
             this.btncashierloadproduct.UseVisualStyleBackColor = false;
+            this.btncashierloadproduct.Click += new System.EventHandler(this.btncashierloadproduct_Click);
             // 
             // btncashierprofile
             // 
@@ -558,7 +581,7 @@
             this.btncashierprofile.FlatAppearance.BorderSize = 0;
             this.btncashierprofile.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btncashierprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncashierprofile.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncashierprofile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncashierprofile.Image = ((System.Drawing.Image)(resources.GetObject("btncashierprofile.Image")));
             this.btncashierprofile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btncashierprofile.Location = new System.Drawing.Point(15, 3);
@@ -657,7 +680,8 @@
             this.Name = "Cashier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier";
-            this.SelectPro.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.Cashier_Load);
+            this.tabPage3.ResumeLayout(false);
             this.panelCashierlbl.ResumeLayout(false);
             this.panelCashierlbl.PerformLayout();
             this.panelCcart.ResumeLayout(false);
@@ -665,11 +689,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCcart)).EndInit();
             this.panelCloadproduct.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCashierloadProducts)).EndInit();
+            this.tabControlCmain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControlCmain.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -686,7 +710,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblPhoneNo;
-        private System.Windows.Forms.TabPage SelectPro;
+        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panelCashierlbl;
         private System.Windows.Forms.Button btnCremovefromcart;
         private System.Windows.Forms.Button btnCclear;
@@ -704,20 +728,9 @@
         private System.Windows.Forms.Panel panelCloadproduct;
         private System.Windows.Forms.Button btnCrefreshproduct;
         private System.Windows.Forms.DataGridView dgvCashierloadProducts;
-        private System.Windows.Forms.Label lblCphonenumber;
         private System.Windows.Forms.Label lblCustomerName;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btntoPandB;
-        private System.Windows.Forms.TextBox txtCphonenumber;
-        private System.Windows.Forms.TextBox txtCcustomername;
-        private System.Windows.Forms.Label lblCcustomername;
         private System.Windows.Forms.TabControl tabControlCmain;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblbilldate;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Button btnClogout;
@@ -730,6 +743,18 @@
         private System.Windows.Forms.Panel panelCtop;
         private System.Windows.Forms.Panel panelCleft;
         private System.Windows.Forms.BindingSource orderdetailsBindingSource;
-        private System.Windows.Forms.Button btnCrefreshcart;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btntoPandB;
+        private System.Windows.Forms.TextBox txtCphonenumber;
+        private System.Windows.Forms.TextBox txtCcustomername;
+        private System.Windows.Forms.Label lblCphonenumber;
+        private System.Windows.Forms.Label lblCcustomername;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblnumber;
+        private System.Windows.Forms.Label lblname;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

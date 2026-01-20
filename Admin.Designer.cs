@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnexitadmin = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.adminleftpanel = new System.Windows.Forms.Panel();
-            this.lblshopname = new System.Windows.Forms.Label();
-            this.todashboard = new System.Windows.Forms.Button();
+            this.adminprofile = new System.Windows.Forms.PictureBox();
+            this.btnlogoutadmin = new System.Windows.Forms.Button();
+            this.toSales = new System.Windows.Forms.Button();
             this.toinventory = new System.Windows.Forms.Button();
             this.toproduct = new System.Windows.Forms.Button();
             this.tousers = new System.Windows.Forms.Button();
@@ -65,9 +69,11 @@
             this.lbladminproduct = new System.Windows.Forms.Label();
             this.Inventory = new System.Windows.Forms.TabPage();
             this.btngotoinventory = new System.Windows.Forms.Button();
-            this.Dashboard = new System.Windows.Forms.TabPage();
-            this.lbldashboard = new System.Windows.Forms.Label();
+            this.Sales = new System.Windows.Forms.TabPage();
+            this.chartSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblSales = new System.Windows.Forms.Label();
             this.adminleftpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminprofile)).BeginInit();
             this.tabControlmain.SuspendLayout();
             this.User.SuspendLayout();
             this.userpaneladmin.SuspendLayout();
@@ -77,29 +83,16 @@
             this.Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvadminproduct)).BeginInit();
             this.Inventory.SuspendLayout();
-            this.Dashboard.SuspendLayout();
+            this.Sales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSales)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnexitadmin
-            // 
-            this.btnexitadmin.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnexitadmin.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnexitadmin.ForeColor = System.Drawing.Color.LightCoral;
-            this.btnexitadmin.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnexitadmin.Location = new System.Drawing.Point(64, 478);
-            this.btnexitadmin.Name = "btnexitadmin";
-            this.btnexitadmin.Size = new System.Drawing.Size(71, 25);
-            this.btnexitadmin.TabIndex = 0;
-            this.btnexitadmin.Text = "Logout";
-            this.btnexitadmin.UseVisualStyleBackColor = false;
-            this.btnexitadmin.Click += new System.EventHandler(this.btnexitadmin_Click);
             // 
             // adminleftpanel
             // 
             this.adminleftpanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.adminleftpanel.Controls.Add(this.lblshopname);
-            this.adminleftpanel.Controls.Add(this.todashboard);
-            this.adminleftpanel.Controls.Add(this.btnexitadmin);
+            this.adminleftpanel.Controls.Add(this.adminprofile);
+            this.adminleftpanel.Controls.Add(this.btnlogoutadmin);
+            this.adminleftpanel.Controls.Add(this.toSales);
             this.adminleftpanel.Controls.Add(this.toinventory);
             this.adminleftpanel.Controls.Add(this.toproduct);
             this.adminleftpanel.Controls.Add(this.tousers);
@@ -109,32 +102,49 @@
             this.adminleftpanel.Size = new System.Drawing.Size(185, 507);
             this.adminleftpanel.TabIndex = 1;
             // 
-            // lblshopname
+            // adminprofile
             // 
-            this.lblshopname.AutoSize = true;
-            this.lblshopname.BackColor = System.Drawing.Color.Transparent;
-            this.lblshopname.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblshopname.ForeColor = System.Drawing.Color.Honeydew;
-            this.lblshopname.Location = new System.Drawing.Point(26, 12);
-            this.lblshopname.Name = "lblshopname";
-            this.lblshopname.Size = new System.Drawing.Size(144, 27);
-            this.lblshopname.TabIndex = 4;
-            this.lblshopname.Text = "Cake n\' Bake";
+            this.adminprofile.Image = ((System.Drawing.Image)(resources.GetObject("adminprofile.Image")));
+            this.adminprofile.Location = new System.Drawing.Point(46, 18);
+            this.adminprofile.Name = "adminprofile";
+            this.adminprofile.Size = new System.Drawing.Size(100, 50);
+            this.adminprofile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.adminprofile.TabIndex = 6;
+            this.adminprofile.TabStop = false;
+            this.adminprofile.Click += new System.EventHandler(this.adminprofile_Click);
             // 
-            // todashboard
+            // btnlogoutadmin
             // 
-            this.todashboard.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.todashboard.Location = new System.Drawing.Point(46, 371);
-            this.todashboard.Name = "todashboard";
-            this.todashboard.Size = new System.Drawing.Size(105, 49);
-            this.todashboard.TabIndex = 3;
-            this.todashboard.Text = "Dashboard";
-            this.todashboard.UseVisualStyleBackColor = false;
-            this.todashboard.Click += new System.EventHandler(this.todashboard_Click);
+            this.btnlogoutadmin.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnlogoutadmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnlogoutadmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnlogoutadmin.FlatAppearance.BorderSize = 0;
+            this.btnlogoutadmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnlogoutadmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlogoutadmin.Image = ((System.Drawing.Image)(resources.GetObject("btnlogoutadmin.Image")));
+            this.btnlogoutadmin.Location = new System.Drawing.Point(46, 436);
+            this.btnlogoutadmin.Name = "btnlogoutadmin";
+            this.btnlogoutadmin.Size = new System.Drawing.Size(105, 59);
+            this.btnlogoutadmin.TabIndex = 5;
+            this.btnlogoutadmin.UseVisualStyleBackColor = false;
+            this.btnlogoutadmin.Click += new System.EventHandler(this.btnlogoutadmin_Click);
+            // 
+            // toSales
+            // 
+            this.toSales.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.toSales.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toSales.Location = new System.Drawing.Point(46, 371);
+            this.toSales.Name = "toSales";
+            this.toSales.Size = new System.Drawing.Size(105, 49);
+            this.toSales.TabIndex = 3;
+            this.toSales.Text = "$ales";
+            this.toSales.UseVisualStyleBackColor = false;
+            this.toSales.Click += new System.EventHandler(this.todashboard_Click);
             // 
             // toinventory
             // 
             this.toinventory.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.toinventory.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toinventory.Location = new System.Drawing.Point(46, 275);
             this.toinventory.Name = "toinventory";
             this.toinventory.Size = new System.Drawing.Size(105, 49);
@@ -146,6 +156,7 @@
             // toproduct
             // 
             this.toproduct.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.toproduct.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toproduct.Location = new System.Drawing.Point(46, 188);
             this.toproduct.Name = "toproduct";
             this.toproduct.Size = new System.Drawing.Size(105, 49);
@@ -157,6 +168,7 @@
             // tousers
             // 
             this.tousers.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tousers.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tousers.Location = new System.Drawing.Point(46, 93);
             this.tousers.Name = "tousers";
             this.tousers.Size = new System.Drawing.Size(105, 49);
@@ -171,7 +183,7 @@
             this.tabControlmain.Controls.Add(this.User);
             this.tabControlmain.Controls.Add(this.Product);
             this.tabControlmain.Controls.Add(this.Inventory);
-            this.tabControlmain.Controls.Add(this.Dashboard);
+            this.tabControlmain.Controls.Add(this.Sales);
             this.tabControlmain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlmain.Location = new System.Drawing.Point(185, 0);
             this.tabControlmain.Name = "tabControlmain";
@@ -270,7 +282,6 @@
             this.dgvadminusers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvadminusers.Size = new System.Drawing.Size(656, 359);
             this.dgvadminusers.TabIndex = 4;
-            this.dgvadminusers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminusers_CellClick);
             // 
             // panelpending
             // 
@@ -457,7 +468,6 @@
             this.dgvadminproduct.Size = new System.Drawing.Size(526, 368);
             this.dgvadminproduct.TabIndex = 3;
             this.dgvadminproduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminproduct_CellClick);
-            this.dgvadminproduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvadminproduct_CellContentClick);
             // 
             // btnadmviewproduct
             // 
@@ -504,28 +514,45 @@
             this.btngotoinventory.UseVisualStyleBackColor = true;
             this.btngotoinventory.Click += new System.EventHandler(this.btngotoinventory_Click);
             // 
-            // Dashboard
+            // Sales
             // 
-            this.Dashboard.BackColor = System.Drawing.Color.Teal;
-            this.Dashboard.Controls.Add(this.lbldashboard);
-            this.Dashboard.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.Dashboard.Location = new System.Drawing.Point(4, 4);
-            this.Dashboard.Name = "Dashboard";
-            this.Dashboard.Padding = new System.Windows.Forms.Padding(3);
-            this.Dashboard.Size = new System.Drawing.Size(749, 480);
-            this.Dashboard.TabIndex = 3;
-            this.Dashboard.Text = "Dashboard";
+            this.Sales.BackColor = System.Drawing.Color.Teal;
+            this.Sales.Controls.Add(this.chartSales);
+            this.Sales.Controls.Add(this.lblSales);
+            this.Sales.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.Sales.Location = new System.Drawing.Point(4, 4);
+            this.Sales.Name = "Sales";
+            this.Sales.Padding = new System.Windows.Forms.Padding(3);
+            this.Sales.Size = new System.Drawing.Size(749, 480);
+            this.Sales.TabIndex = 3;
+            this.Sales.Text = "Dashboard";
             // 
-            // lbldashboard
+            // chartSales
             // 
-            this.lbldashboard.AutoSize = true;
-            this.lbldashboard.BackColor = System.Drawing.Color.Transparent;
-            this.lbldashboard.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldashboard.Location = new System.Drawing.Point(311, 10);
-            this.lbldashboard.Name = "lbldashboard";
-            this.lbldashboard.Size = new System.Drawing.Size(122, 27);
-            this.lbldashboard.TabIndex = 2;
-            this.lbldashboard.Text = "Dashboard";
+            chartArea1.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartSales.Legends.Add(legend1);
+            this.chartSales.Location = new System.Drawing.Point(31, 68);
+            this.chartSales.Name = "chartSales";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartSales.Series.Add(series1);
+            this.chartSales.Size = new System.Drawing.Size(683, 382);
+            this.chartSales.TabIndex = 3;
+            this.chartSales.Text = "chart1";
+            // 
+            // lblSales
+            // 
+            this.lblSales.AutoSize = true;
+            this.lblSales.BackColor = System.Drawing.Color.Transparent;
+            this.lblSales.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSales.Location = new System.Drawing.Point(311, 10);
+            this.lblSales.Name = "lblSales";
+            this.lblSales.Size = new System.Drawing.Size(152, 27);
+            this.lblSales.TabIndex = 2;
+            this.lblSales.Text = "Total Sales($)";
             // 
             // Admin
             // 
@@ -543,7 +570,7 @@
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.Admin_Load);
             this.adminleftpanel.ResumeLayout(false);
-            this.adminleftpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminprofile)).EndInit();
             this.tabControlmain.ResumeLayout(false);
             this.User.ResumeLayout(false);
             this.userpaneladmin.ResumeLayout(false);
@@ -556,29 +583,27 @@
             this.Product.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvadminproduct)).EndInit();
             this.Inventory.ResumeLayout(false);
-            this.Dashboard.ResumeLayout(false);
-            this.Dashboard.PerformLayout();
+            this.Sales.ResumeLayout(false);
+            this.Sales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSales)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnexitadmin;
         private System.Windows.Forms.Panel adminleftpanel;
         private System.Windows.Forms.Button tousers;
-        private System.Windows.Forms.Button todashboard;
+        private System.Windows.Forms.Button toSales;
         private System.Windows.Forms.Button toinventory;
         private System.Windows.Forms.Button toproduct;
-        private System.Windows.Forms.Label lblshopname;
         private System.Windows.Forms.TabControl tabControlmain;
         private System.Windows.Forms.TabPage User;
         private System.Windows.Forms.TabPage Product;
         private System.Windows.Forms.TabPage Inventory;
-        private System.Windows.Forms.TabPage Dashboard;
+        private System.Windows.Forms.TabPage Sales;
         private System.Windows.Forms.Label lbladminuser;
         private System.Windows.Forms.Label lbladminproduct;
-        private System.Windows.Forms.Label lbldashboard;
+        private System.Windows.Forms.Label lblSales;
         private System.Windows.Forms.DataGridView dgvadminproduct;
         private System.Windows.Forms.Button btnadmviewproduct;
         private System.Windows.Forms.Button btnadmupdateproduct;
@@ -603,5 +628,8 @@
         private System.Windows.Forms.Label lblpanelpending;
         private System.Windows.Forms.Panel userpaneladmin;
         private System.Windows.Forms.Button btngotoinventory;
+        private System.Windows.Forms.Button btnlogoutadmin;
+        private System.Windows.Forms.PictureBox adminprofile;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSales;
     }
 }

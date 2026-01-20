@@ -17,27 +17,17 @@ namespace BakeryShopManagementSystem
         {
             InitializeComponent();
         }
-
-
-
         private void ViewProducts()
         {
          dgvadminproduct.DataSource =
         DatabaseHelper.GetData("SELECT * FROM products");
         }
 
-
         private void ViewUsers()
         {
          dgvadminusers.DataSource =
          DatabaseHelper.GetData("SELECT * FROM users");
-        }
-        private void btnexitadmin_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Close();
-        }
+        }    
 
         private void tousers_Click(object sender, EventArgs e)
         {
@@ -57,7 +47,26 @@ namespace BakeryShopManagementSystem
 
         private void todashboard_Click(object sender, EventArgs e)
         {
-            tabControlmain.SelectedTab = Dashboard;
+         DataTable dt = DatabaseHelper.GetData(
+          "SELECT DATE(order_date) AS sale_date, " +
+         "SUM(total_amount) AS total_sales " +
+         "FROM orders " +
+         "GROUP BY DATE(order_date) " +
+          "ORDER BY sale_date");
+
+            chartSales.Series.Clear();
+            chartSales.Series.Add("Sales");
+            chartSales.Series["Sales"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                chartSales.Series["Sales"].Points.AddXY(
+                    row["sale_date"].ToString(),
+                    Convert.ToDecimal(row["total_sales"])
+                );
+            }
+            tabControlmain.SelectedTab = Sales;
 
         }
 
@@ -102,12 +111,6 @@ namespace BakeryShopManagementSystem
             txtproductname.Clear();
             txtproductprice.Clear();
         }
-
-        private void dgvadminusers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnadminpendinguser_Click(object sender, EventArgs e)
         {
             panelpending.Visible = true;
@@ -280,17 +283,25 @@ namespace BakeryShopManagementSystem
             ViewUsers();
         }
 
-
-        private void dgvadminproduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btngotoinventory_Click(object sender, EventArgs e)
         {
             InventoryManager im=new InventoryManager();
             im.Show();
             this.Hide();
+        }
+
+        private void btnlogoutadmin_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void adminprofile_Click(object sender, EventArgs e)
+        {
+            profile p = new profile();
+            p.Show();
+            this.Close();
         }
     }
 }
