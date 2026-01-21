@@ -19,8 +19,31 @@ namespace BakeryShopManagementSystem
 
         private void btnbackadmindashboard_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
-            admin.Show();
+            if (Session.Role == "Admin")
+            {
+                Admin admin = new Admin();
+                admin.Show();
+            }
+            else if (Session.Role == "Production Manager")
+            {
+                ProductionManager pm = new ProductionManager();
+                pm.Show();
+            }
+            else if (Session.Role == "Cashier")
+            {
+                Cashier ch = new Cashier();
+                ch.Show();
+            }
+            else if (Session.Role == "Inventory Manager")
+            {
+                InventoryManager im = new InventoryManager();
+                im.Show();
+            }
+            else
+            {
+                MessageBox.Show("Access denied");
+            }
+
             this.Close();
         }
         private void profile_Load_1(object sender, EventArgs e)

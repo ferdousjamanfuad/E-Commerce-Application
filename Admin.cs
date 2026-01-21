@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,15 +18,15 @@ namespace BakeryShopManagementSystem
         }
         private void ViewProducts()
         {
-         dgvadminproduct.DataSource =
-        DatabaseHelper.GetData("SELECT * FROM products");
+            dgvadminproduct.DataSource =
+           DatabaseHelper.GetData("SELECT * FROM products");
         }
 
         private void ViewUsers()
         {
-         dgvadminusers.DataSource =
-         DatabaseHelper.GetData("SELECT * FROM users");
-        }    
+            dgvadminusers.DataSource =
+            DatabaseHelper.GetData("SELECT * FROM users");
+        }
 
         private void tousers_Click(object sender, EventArgs e)
         {
@@ -47,13 +46,13 @@ namespace BakeryShopManagementSystem
 
         private void todashboard_Click(object sender, EventArgs e)
         {
-         DataTable dt = DatabaseHelper.GetData(
-          "SELECT DATE(order_date) AS sale_date, " +
-         "SUM(total_amount) AS total_sales " +
-         "FROM orders " +
-         "GROUP BY DATE(order_date) " +
-          "ORDER BY sale_date");
-
+            DataTable dt = DatabaseHelper.GetData(
+        "SELECT CAST(order_date AS DATE) AS sale_date, " +
+        "SUM(total_amount) AS total_sales " +
+        "FROM orders " +
+        "GROUP BY CAST(order_date AS DATE) " +
+        "ORDER BY sale_date"
+         );
             chartSales.Series.Clear();
             chartSales.Series.Add("Sales");
             chartSales.Series["Sales"].ChartType =
@@ -62,7 +61,7 @@ namespace BakeryShopManagementSystem
             foreach (DataRow row in dt.Rows)
             {
                 chartSales.Series["Sales"].Points.AddXY(
-                    row["sale_date"].ToString(),
+                    Convert.ToDateTime(row["sale_date"]).ToString("yyyy-MM-dd"),
                     Convert.ToDecimal(row["total_sales"])
                 );
             }
@@ -87,7 +86,7 @@ namespace BakeryShopManagementSystem
 
         private void btnadminupdate_Click(object sender, EventArgs e)
         {
-            
+
             if (string.IsNullOrWhiteSpace(txtproductid.Text) ||
              string.IsNullOrWhiteSpace(txtproductname.Text) ||
              string.IsNullOrWhiteSpace(txtproductprice.Text))
@@ -98,15 +97,15 @@ namespace BakeryShopManagementSystem
 
             string query = $"UPDATE products SET product_name = '{txtproductname.Text}',price = '{txtproductprice.Text}' WHERE product_id = {txtproductid.Text}";
             bool success = DatabaseHelper.Execute(query);
-            if(success)
-                {
+            if (success)
+            {
                 MessageBox.Show("Product updated successfully");
             }
             else
             {
                 MessageBox.Show("Failed to update product");
             }
-             ViewProducts();
+            ViewProducts();
             txtproductid.Clear();
             txtproductname.Clear();
             txtproductprice.Clear();
@@ -151,20 +150,20 @@ namespace BakeryShopManagementSystem
                 MessageBox.Show("Please enter product name and price");
                 return;
             }
-                string query = $"INSERT INTO products (product_name, price) VALUES ('{txtproductname.Text}', '{txtproductprice.Text}')";
-                bool success = DatabaseHelper.Execute(query);
+            string query = $"INSERT INTO products (product_name, price) VALUES ('{txtproductname.Text}', '{txtproductprice.Text}')";
+            bool success = DatabaseHelper.Execute(query);
 
-                if (success)
-                {
-                    MessageBox.Show("Product added successfully!");
-                    ViewProducts();
-                    txtproductname.Clear();
-                    txtproductprice.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to add product");
-                }
+            if (success)
+            {
+                MessageBox.Show("Product added successfully!");
+                ViewProducts();
+                txtproductname.Clear();
+                txtproductprice.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add product");
+            }
         }
 
         private void btnadminviewuser_Click(object sender, EventArgs e)
@@ -223,7 +222,7 @@ namespace BakeryShopManagementSystem
 
         private void Admin_Load(object sender, EventArgs e)
         {
-           panelpending.Visible = false;
+            panelpending.Visible = false;
         }
 
         private void btnadmdltuser_Click(object sender, EventArgs e)
@@ -237,8 +236,10 @@ namespace BakeryShopManagementSystem
            dgvadminusers.SelectedRows[0].Cells["user_id"].Value);
             string role = dgvadminusers.SelectedRows[0]
                          .Cells["role"].Value.ToString();
-            if (role == "Admin") {
-                MessageBox.Show("Admin can't be removed"); return; }
+            if (role == "Admin")
+            {
+                MessageBox.Show("Admin can't be removed"); return;
+            }
 
             string query = "DELETE FROM users WHERE user_id = " + userId;
             bool success = DatabaseHelper.Execute(query);
@@ -246,15 +247,15 @@ namespace BakeryShopManagementSystem
             if (success)
             {
                 MessageBox.Show("User deleted successfully");
-                ViewUsers(); 
+                ViewUsers();
             }
             else
             {
                 MessageBox.Show("Failed to delete user");
             }
         }
-            private void btnadminupdateuser_Click(object sender, EventArgs e)
-            {
+        private void btnadminupdateuser_Click(object sender, EventArgs e)
+        {
             if (dgvadminusers.SelectedRows.Count == 0) return;
 
             string role = dgvadminusers.SelectedRows[0]
@@ -270,6 +271,8 @@ namespace BakeryShopManagementSystem
             string name = row.Cells["username"].Value.ToString();
             string email = row.Cells["email"].Value.ToString();
             string newRole = row.Cells["role"].Value.ToString();
+            string newAddress = row.Cells["address"].Value.ToString();
+
 
             if (newRole == "Admin")
             {
@@ -277,7 +280,7 @@ namespace BakeryShopManagementSystem
                 return;
             }
 
-            string q = $"UPDATE users SET username='{name}', email='{email}', role='{newRole}' WHERE user_id={id}";
+            string q = $"UPDATE users SET username='{name}', email='{email}', role='{newRole}',address='{newAddress}' WHERE user_id={id}";
             DatabaseHelper.Execute(q);
             MessageBox.Show("User updated successfully");
             ViewUsers();
@@ -285,7 +288,7 @@ namespace BakeryShopManagementSystem
 
         private void btngotoinventory_Click(object sender, EventArgs e)
         {
-            InventoryManager im=new InventoryManager();
+            InventoryManager im = new InventoryManager();
             im.Show();
             this.Hide();
         }

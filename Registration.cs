@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace BakeryShopManagementSystem
 {
@@ -66,15 +65,15 @@ namespace BakeryShopManagementSystem
             string role = cmbregrole.Text;
             string address = txtregaddress.Text.Trim();
             string gender = rbreggenderM.Checked ? "Male" : "Female";
-           // string dob = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            string dob = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             int isApproved = 0;
 
 
 
             try
             {
-                string query = $"INSERT INTO users (username, email, password,gender, role, address, is_approved) " +
-                 $"VALUES ('{username}','{email}','{password}','{gender}','{role}','{address}',{isApproved})";
+                string query = $"INSERT INTO users (username, email, password, gender, role, address, dateofbirth, is_approved) " +
+                $"VALUES ('{username}','{email}','{password}','{gender}','{role}','{address}','{dob}',{isApproved})";
 
 
                 bool success = DatabaseHelper.Execute(query);

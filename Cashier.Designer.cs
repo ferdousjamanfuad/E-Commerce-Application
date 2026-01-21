@@ -62,6 +62,7 @@
             this.lblCphonenumber = new System.Windows.Forms.Label();
             this.lblCcustomername = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnPrintReceipt = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -238,7 +239,7 @@
             this.panelCcart.Location = new System.Drawing.Point(649, 7);
             this.panelCcart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelCcart.Name = "panelCcart";
-            this.panelCcart.Size = new System.Drawing.Size(387, 501);
+            this.panelCcart.Size = new System.Drawing.Size(387, 511);
             this.panelCcart.TabIndex = 1;
             // 
             // btnCBill
@@ -246,12 +247,12 @@
             this.btnCBill.FlatAppearance.BorderSize = 0;
             this.btnCBill.Image = ((System.Drawing.Image)(resources.GetObject("btnCBill.Image")));
             this.btnCBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCBill.Location = new System.Drawing.Point(157, 457);
+            this.btnCBill.Location = new System.Drawing.Point(81, 412);
             this.btnCBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCBill.Name = "btnCBill";
-            this.btnCBill.Size = new System.Drawing.Size(69, 30);
+            this.btnCBill.Size = new System.Drawing.Size(174, 50);
             this.btnCBill.TabIndex = 9;
-            this.btnCBill.Text = "Bill";
+            this.btnCBill.Text = "Generate Bill";
             this.btnCBill.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCBill.UseVisualStyleBackColor = true;
             this.btnCBill.Click += new System.EventHandler(this.btnCBill_Click);
@@ -260,7 +261,7 @@
             // 
             this.lblCtotal.AutoSize = true;
             this.lblCtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCtotal.Location = new System.Drawing.Point(99, 342);
+            this.lblCtotal.Location = new System.Drawing.Point(102, 337);
             this.lblCtotal.Name = "lblCtotal";
             this.lblCtotal.Size = new System.Drawing.Size(62, 22);
             this.lblCtotal.TabIndex = 2;
@@ -373,22 +374,22 @@
             // lblnumber
             // 
             this.lblnumber.AutoSize = true;
-            this.lblnumber.Location = new System.Drawing.Point(556, 154);
+            this.lblnumber.Location = new System.Drawing.Point(487, 149);
             this.lblnumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblnumber.Name = "lblnumber";
-            this.lblnumber.Size = new System.Drawing.Size(74, 20);
+            this.lblnumber.Size = new System.Drawing.Size(144, 20);
             this.lblnumber.TabIndex = 8;
-            this.lblnumber.Text = "Number";
+            this.lblnumber.Text = "Phone Number :";
             // 
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Location = new System.Drawing.Point(573, 103);
+            this.lblname.Location = new System.Drawing.Point(475, 99);
             this.lblname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(57, 20);
+            this.lblname.Size = new System.Drawing.Size(156, 20);
             this.lblname.TabIndex = 7;
-            this.lblname.Text = "Name";
+            this.lblname.Text = "Customer Name :";
             // 
             // pictureBox2
             // 
@@ -467,6 +468,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnPrintReceipt);
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.lblbilldate);
             this.tabPage2.Controls.Add(this.lblTotalAmount);
@@ -480,6 +482,21 @@
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "Bill Info";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnPrintReceipt
+            // 
+            this.btnPrintReceipt.FlatAppearance.BorderSize = 0;
+            this.btnPrintReceipt.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReceipt.Image")));
+            this.btnPrintReceipt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintReceipt.Location = new System.Drawing.Point(308, 376);
+            this.btnPrintReceipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrintReceipt.Name = "btnPrintReceipt";
+            this.btnPrintReceipt.Size = new System.Drawing.Size(174, 50);
+            this.btnPrintReceipt.TabIndex = 10;
+            this.btnPrintReceipt.Text = "Print Receipt";
+            this.btnPrintReceipt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrintReceipt.UseVisualStyleBackColor = true;
+            this.btnPrintReceipt.Click += new System.EventHandler(this.btnPrintReceipt_Click);
             // 
             // panel6
             // 
@@ -562,6 +579,7 @@
             this.blnCsales.FlatAppearance.BorderSize = 0;
             this.blnCsales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.blnCsales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.blnCsales.ForeColor = System.Drawing.SystemColors.ControlText;
             this.blnCsales.Image = ((System.Drawing.Image)(resources.GetObject("blnCsales.Image")));
             this.blnCsales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.blnCsales.Location = new System.Drawing.Point(20, 225);
@@ -788,5 +806,6 @@
         private System.Windows.Forms.Label lblname;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnPrintReceipt;
     }
 }
